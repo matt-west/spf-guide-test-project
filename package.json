@@ -1,5 +1,5 @@
 {
-  "name": "postmark-designer-test-project",
+  "name": "pm-designer-test-project",
   "version": "1.0.0",
   "private": true,
   "repository": {
@@ -7,7 +7,6 @@
     "url": "https://github.com/wildbit/pm-designer-test-project"
   },
   "devDependencies": {
-    "autoprefixer": "^6.4.0",
     "browser-sync": "^2.14.0",
     "gulp": "^3.9.1",
     "gulp-cli": "^1.2.2",
