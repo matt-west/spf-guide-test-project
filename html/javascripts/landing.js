@@ -158,4 +158,4 @@ window.addEventListener('DOMContentLoaded', function () {
 
 }, false);
 
-/* Write your javascript here */
+/* ----------------- Write your code here ---------------- */
