@@ -121,6 +121,9 @@
 
           <p>Do you know every source of email for your domain? Are spammers trying to spoof your email domain for hacking or fraud opportunities? Are you complying with the best email practices to ensure inbox delivery? These are the questions that DMARC answers, giving you full control of email delivery for your company’s domain.<br></p>
 
+          <h2>What is SPF?</h2>
+          <p>SPF is an open standard so that the owner of a domain can provide a public list of approved senders. For instance, if you use an application like Postmark to send your transactional email and then use Campaign Monitor to send your marketing emails, you’d want to include both of those services as approved senders. This way, receiving mail servers can cross-check that the email originated from a server that has permission to send on your behalf. If the message originates from a server that’s not on your list, then the receiving server can consider it a fake and treat it accordingly.</p>
+          <p>An important aspect to understand about SPF is that it does not validate against the <code>From</code> domain. Instead, SPF looks at the <code>Return-Path</code> value to validate the originating server. What’s a <code>Return-Path</code>? Good question. It’s the email address that receiving servers use to notify the sending mail server of delivery problems, like bounces. So an email can pass SPF regardless of whether the from address is fake. The problem with this limitation is that the <code>From</code> address is what recipients see in their email clients. Furthermore, even if a message fails SPF, there's no guarantee it won't be delivered. That final decision about delivery is up to the receiving ISP.</p>
         </div>
       </article>
     </div>
