@@ -50,8 +50,7 @@ gulp.task('scripts:landing', function () {
     paths.scripts.src + 'support.js',
     paths.scripts.src + 'WORK_HERE.js'
   ])
-    .pipe(concat('landing.min.js'))
-    .pipe(uglify())
+    .pipe(concat('landing.js'))
     .pipe(gulp.dest(paths.scripts.dist))
     .pipe(reload({stream: true}));
 });
