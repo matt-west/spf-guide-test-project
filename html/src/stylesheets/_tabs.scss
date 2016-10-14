@@ -1,0 +1,64 @@
+/** postcss-bem-linter: define tabs */
+
+.tabs {
+  display: flex;
+  justify-content: stretch;
+  align-items: flex-start;
+  position: relative;
+  min-height: 450px; /* This part sucks */
+  padding: 0;
+  overflow: hidden;
+
+  &_item {
+    background-color: $c-cv-tabs-bg;
+
+    &:last-of-type {
+      flex: 1;
+    }
+  }
+
+  &_label {
+    display: inline-block;
+    border-bottom: 2px solid transparent;
+    padding: 15px 25px 10px;
+    color: $c-cv-txt;
+    font-size: .8em;
+    cursor: pointer;
+    transition: all .1s linear;
+
+    &:hover {
+      color: #FFF;
+    }
+  }
+
+  &_radio {
+    display: none;
+  }
+
+  &_content {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+    padding: 0 25px;
+    overflow: auto;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all .5s ease;
+  }
+
+  &_radio:checked ~ &_label {
+    border-bottom-color: $c-cv-tabs-active;
+    color: #FFF;
+  }
+
+  &_radio:checked ~ &_label ~ &_content {
+    z-index: 1;
+    opacity: 1;
+    transform: translateX(0);
+    transition: all .5s ease;
+  }
+}
+

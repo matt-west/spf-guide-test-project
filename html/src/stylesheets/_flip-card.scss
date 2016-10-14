@@ -1,0 +1,84 @@
+/** postcss-bem-linter: define flip-card */
+
+$duration: 300ms;
+$animation-duration: 900ms;
+$easing: cubic-bezier(.52, .26, .18, 1.03);
+$depth: 600px;
+
+@keyframes bottom-top {
+  0% {
+    transform: translate3d(30px, 0, -$depth) rotateY(0deg);
+  }
+  50% {
+    transform: translate3d(50%, 0, -$depth / 2) rotateY(-15deg);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotateY(0deg);
+  }
+}
+
+@keyframes top-bottom {
+  0% {
+    transform: translate3d(-30px, 0, 0) rotateY(0deg);
+  }
+  50% {
+    transform: translate3d(-50%, 0, -$depth / 2) rotateY(-15deg);
+  }
+  100% {
+    transform: translate3d(0, 0, -$depth) rotateY(0deg);
+  }
+}
+
+.flip-card {
+  display: block;
+  position: relative;
+  height: 450px;
+  cursor: pointer;
+  perspective: 400px;
+
+  &_input {
+    display: none;
+  }
+
+  &_card {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform $duration $easing;
+  }
+
+  &_front,
+  &_back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: transform 0s $duration $easing;
+  }
+
+  &_front {
+    z-index: 1;
+    animation: bottom-top $animation-duration $easing;
+    transform: translate3d(0, 0, 0);
+  }
+  &_back {
+    z-index: 0;
+    animation: top-bottom $animation-duration $easing;
+    transform: translate3d(0, 0, -$depth);
+  }
+
+  &:hover &_card {
+    transform: rotateY(-5deg);
+  }
+
+  &_input:checked + &_card &_back {
+    z-index: 1;
+    animation: bottom-top $animation-duration $easing;
+    transform: translate3d(0, 0, 0) rotateY(0deg);
+  }
+  &_input:checked + &_card &_front {
+    z-index: 0;
+    animation: top-bottom $animation-duration $easing;
+    transform: translate3d(0, 0, -$depth) rotateY(0deg);
+  }
+}

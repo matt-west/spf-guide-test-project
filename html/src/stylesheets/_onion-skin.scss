@@ -1,0 +1,21 @@
+/** postcss-bem-linter: define onion-skin */
+
+.onion-skin {
+  box-sizing: border-box;
+  width: 100%;
+
+  &_before {
+    position: relative;
+  }
+
+  &_after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    overflow: hidden;
+  }
+
+  &_layer {
+  }
+}

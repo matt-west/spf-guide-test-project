@@ -1,0 +1,80 @@
+/** postcss-bem-linter: define social-refs */
+
+@import 'variables';
+$s-social-icon: 23px;
+$s-social-cell: ($s-social-icon + 1px);
+
+.social-refs {
+  display: inline-block;
+  margin: 0;
+  line-height: 2;
+
+  &_item {
+    margin-right: 1.25em;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+
+  &_link {
+    white-space: nowrap;
+
+    &::before {
+      content: '';
+
+      display: inline-block;
+      width:  $s-social-icon;
+      height: $s-social-icon;
+      margin-right: .35em;
+      vertical-align: middle;
+      background: url('../images/i-social.png') no-repeat;
+      background-size: #{$s-social-cell * 5} $s-social-icon;
+      line-height: 1.3;
+
+      @include retina {
+        background-image: url('../images/i-social@2x.png');
+      }
+    }
+  }
+
+  &_link--rss {
+    color: $c-subscribe-rss;
+
+    &::before {
+      background-position: #{$s-social-cell * 0} 0;
+    }
+  }
+
+  &_link--twitter {
+    color: $c-subscribe-twitter;
+
+    &::before {
+      background-position: #{$s-social-cell * -1} 0;
+    }
+  }
+
+  &_link--instagram {
+    color: $c-subscribe-instagram;
+
+    &::before {
+      background-position: #{$s-social-cell * -2} 0;
+    }
+  }
+
+  &_link--medium {
+    color: $c-subscribe-medium;
+
+    &::before {
+      background-position: #{$s-social-cell * -3} 0;
+    }
+  }
+
+  &_link--dribbble {
+    color: $c-subscribe-dribbble;
+
+    &::before {
+      background-position: #{$s-social-cell * -4} 0;
+    }
+  }
+}

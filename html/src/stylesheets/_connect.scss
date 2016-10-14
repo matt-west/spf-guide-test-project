@@ -1,0 +1,82 @@
+/** postcss-bem-linter: define connect */
+
+@import 'variables';
+
+.connect {
+  background-color: $c-beige-light;
+
+  &_section {
+    border-bottom: 1px dashed $c-beige;
+    padding: 20px 0;
+
+    &:last-of-type {
+      border: none;
+    }
+
+    @include medium {
+      border-right: 1px dashed $c-beige;
+      border-bottom: none;
+
+      &--subscribe {
+        padding-right: 40px;
+      }
+      &--chat {
+        padding-left: 40px;
+      }
+    }
+  }
+
+  &_title {
+    font-size: 1em;
+  }
+
+  &_text {
+    margin: 0 0 .5em;
+  }
+
+  &_form {
+    margin-bottom: 1em;
+  }
+
+  &_fieldset {
+    margin: 0;
+    border: none;
+    padding: 0;
+  }
+
+  &_form-row {
+    display: flex;
+  }
+
+  &_input {
+    flex: auto;
+
+    margin-right: .5em;
+    border: 1px solid $c-beige-dark;
+    border-radius: 3px;
+    padding: .25em;
+    font-size: 100%;
+  }
+
+  &_chat-box {
+    display: flex;
+  }
+
+  &_support-team {
+    min-width: 90px;
+  }
+
+  &_callout-box {
+    margin-left: 1em;
+    text-align: right;
+  }
+
+  &_chat-callout {
+    margin: 0 0 .7em;
+    border: 1px solid #D0E2F7;
+    border-radius: 5px;
+    padding: 1em;
+    background-color: #EFF5FC;
+    text-align: left;
+  }
+}

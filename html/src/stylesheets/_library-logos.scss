@@ -1,0 +1,36 @@
+/** postcss-bem-linter: define library-logos */
+
+$libraries: (rails: 128px, dot-net: 82px, php: 88px, python: 70px, java: 51px);
+$library-position: 0;
+
+.library-logos {
+  margin: 0;
+  padding-left: 0;
+
+  &_logo {
+    display: inline-block;
+    height: 106px;
+    margin: 15px 20px;
+    overflow: hidden;
+    background: url('/images/library-logos.svg') no-repeat;
+    background-size: 419px 80px;
+    text-indent: -9999em;
+    list-style: none;
+
+    &:first-child {
+      margin-left: 0;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  @each $library, $width in $libraries {
+    &_logo--#{$library} {
+      width: $width;
+      background-position: ($library-position * -1) 0;
+    }
+    $library-position: $library-position + $width;
+  }
+}
+

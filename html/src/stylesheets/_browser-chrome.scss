@@ -1,0 +1,21 @@
+/** postcss-bem-linter: define browser-chrome */
+
+.browser-chrome {
+  position: relative;
+  border-radius: 4px;
+  padding-top: 28px;
+  overflow: hidden;
+  background-color: #F5F5F5;
+
+  &::before {
+    content: '•••';
+
+    display: block;
+    position: absolute;
+    top: -24px;
+    left: 6px;
+    height: 15px;
+    color: #E0E0E0;
+    font-size: 48px;
+  }
+}

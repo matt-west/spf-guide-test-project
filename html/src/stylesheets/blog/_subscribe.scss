@@ -1,0 +1,119 @@
+// Based on https://github.com/wildbit/craft-product-framework/blob/master/html/src/stylesheets/blog/_subscribe.scss
+
+/* Subscribe
+------------------------------------------------- */
+
+.subscribe {
+  margin: #{$grid-gutter / 2} auto $grid-gutter;
+  color: $c-subscribe-txt;
+  font-size: .9375em;
+
+  @include medium {
+    max-width: grid-width(4);
+  }
+}
+
+
+  // Form
+
+  .subscribe_form {
+    padding: 20px;
+    background-color: $c-subscribe-bg;
+
+    @include medium {
+      padding: #{$grid-gutter / 2};
+    }
+
+    > fieldset {
+      margin: 0;
+      border: 0;
+      padding: 0;
+
+      :last-child {
+        margin-bottom: 0;
+      }
+    }
+      legend {
+        display: block;
+        margin: 0 0 .75em;
+        color: $c-subscribe-title;
+      }
+      p {
+        margin: 0 0 1.2em;
+      }
+      .form-row {
+        margin: 1.25em 0 1.1em;
+      }
+        input[type='email'] {
+          width: 50%;
+          margin: 0 .25em 0 0;
+          border: 1px solid $c-subscribe-field-brd;
+          padding: .3em .5em;
+          font: 1em $f-sansserif;
+
+          @include medium {
+            width: grid-width(2.5);
+          }
+        }
+        input[type='submit'] {
+          margin: 0;
+          border: 0;
+          border-radius: 2px;
+          padding: .2em .5em .25em;
+          background-color: $c-subscribe-btn;
+          color: #FFF;
+          font: normal 1em $f-sansserif;
+
+          .fonts-loaded & {
+            font-family: $f-rockwell;
+          }
+
+          &:hover,
+          &:active {
+            background-color: $c-subscribe-btn-h;
+          }
+        }
+  }
+      .subscribe-topics {
+        font-size: .875em;
+        line-height: 1.6;
+      }
+        .subscribe-topics_title {
+          display: inline;
+          margin-right: .66em;
+          font-weight: normal;
+          font-size: 1em;
+        }
+        .subscribe-topics_list {
+          display: inline;
+          padding-left: 0;
+        }
+          .subscribe-topics_item {
+            display: inline;
+            margin-right: .66em;
+
+            label {
+              white-space: nowrap;
+            }
+          }
+
+
+  // Social
+
+  .subscribe_social {
+    border: 3px solid $c-subscribe-bg;
+    border-top: 0;
+    padding: 20px;
+
+    @include medium {
+      padding: #{$grid-gutter / 2};
+    }
+
+    h1 {
+      display: inline-block;
+      margin: 0;
+      color: $c-subscribe-subtitle;
+      font-weight: bold;
+      font-size: 1em;
+    }
+  }

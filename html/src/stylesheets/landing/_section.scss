@@ -1,0 +1,35 @@
+/** postcss-bem-linter: define section */
+
+@import '../variables';
+
+.section {
+  padding: 2em 0;
+
+  &_title {
+    font-weight: normal;
+    font-size: 32px;
+    font-family: $f-rockwell;
+    text-align: center;
+  }
+
+  &_text {
+    margin-bottom: 2em;
+  }
+
+  // Customers section on the home page
+  &--customers {
+    background-color: $c-beige-light;
+    text-align: center;
+  }
+  &--customers &_title {
+    margin: 0;
+    padding-bottom: 1em;
+    color: darken($c-beige-dark, 10%);
+    font-size: $f-scale-big;
+  }
+
+  &_buttons {
+    margin-top: 2em;
+    line-height: 3;
+  }
+}

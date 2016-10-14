@@ -1,0 +1,27 @@
+@import url("//fast.fonts.net/t/1.css?apiType=css&projectid=feebd3af-8897-413f-8501-5e18a085770f");
+
+@font-face {
+    font-family: "Rockwell W01_n4";
+    src: url("/fonts/73e6c08f-deb5-4d6f-827b-597a84046aa4.eot?#iefix") format("eot")
+}
+
+@font-face {
+    font-family: "Rockwell W01";
+    src: url("/fonts/73e6c08f-deb5-4d6f-827b-597a84046aa4.eot?#iefix");
+    src: url("/fonts/73e6c08f-deb5-4d6f-827b-597a84046aa4.eot?#iefix") format("eot"), url("/fonts/8dd355f9-1a9a-4d91-8aa1-7dcc9deeb439.woff2") format("woff2"), url("/fonts/de4b0540-9702-4662-8f3a-228419485257.woff") format("woff"), url("/fonts/bc34c4cd-af2c-400d-b4d0-726e2d89f690.ttf") format("truetype"), url("/fonts/59c05ddc-99f9-44db-82ce-cb7f503b5110.svg#59c05ddc-99f9-44db-82ce-cb7f503b5110") format("svg");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Rockwell W01_n7";
+    src: url("/fonts/864373f8-943b-449d-a730-462eb66d7058.eot?#iefix") format("eot")
+}
+
+@font-face {
+    font-family: "Rockwell W01";
+    src: url("/fonts/864373f8-943b-449d-a730-462eb66d7058.eot?#iefix");
+    src: url("/fonts/864373f8-943b-449d-a730-462eb66d7058.eot?#iefix") format("eot"), url("/fonts/4a475305-1b19-4f93-bb3f-d67733a726cf.woff2") format("woff2"), url("/fonts/49ff3af5-13b2-4add-8470-4cdac3cf650e.woff") format("woff"), url("/fonts/7d69578b-ab0e-4986-af19-428861ada4e4.ttf") format("truetype"), url("/fonts/2848532f-bf3e-4430-aae1-bc0d1367eb84.svg#2848532f-bf3e-4430-aae1-bc0d1367eb84") format("svg");
+    font-weight: 700;
+    font-style: normal;
+}

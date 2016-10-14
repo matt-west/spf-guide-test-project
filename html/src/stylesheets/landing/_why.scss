@@ -1,0 +1,92 @@
+/** postcss-bem-linter: define why */
+
+@import '../variables';
+@import '../mixins';
+
+.why {
+  padding: 0;
+
+  &_item {
+    position: relative;
+    padding: 1.5em 0;
+    list-style: none;
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      top: 1.5rem;
+      left: -3rem;
+      width: 2rem;
+      height: 2rem;
+      border: 2px dashed $c-beige;
+      border-radius: 50%;
+      color: $c-beige-dark;
+      font-size: 150%;
+      font-family: $f-serif;
+      line-height: 1;
+      text-align: center;
+    }
+
+    &:nth-child(1)::after {
+      content: '1';
+    }
+    &:nth-child(2)::after {
+      content: '2';
+    }
+    &:nth-child(3)::after {
+      content: '3';
+    }
+    &:nth-child(4)::after {
+      content: '4';
+    }
+    &:nth-child(5)::after {
+      content: '5';
+    }
+  }
+
+  &_title {
+    font-weight: normal;
+    font-size: 150%;
+    font-family: $f-rockwell;
+    line-height: 1.2;
+    text-decoration: none;
+
+    &:link,
+    &:active,
+    &:visited,
+    &:hover {
+      background-repeat: repeat-x;
+      background-position: -9px 115%;
+      background-size: 1px 0.44em;
+    }
+
+    &:link {
+      background-image: linear-gradient(rgba($c-link, .25), rgba($c-link, .25) 1px, transparent 1px);
+    }
+    &:hover {
+      background-image: linear-gradient(rgba($c-dark, 1), rgba($c-dark, 1) 1px, transparent 1px);
+    }
+
+    /* postcss-bem-linter: ignore */
+    em {
+      background-color: rgba(#FF0, .25);
+      font-style: normal;
+    }
+  }
+
+  &_link-block:hover &_title {
+    background-image: linear-gradient(rgba($c-beige-dark, 1), rgba($c-beige-dark, 1) 1px, transparent 1px);
+  }
+
+  &_text {
+    color: $c-page-tc;
+
+    //font-size: 110%;
+    //font-family: $f-serif;
+    /* postcss-bem-linter: ignore */
+    p {
+      margin: .25em 0 1em;
+    }
+  }
+}

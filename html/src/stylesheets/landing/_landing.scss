@@ -1,0 +1,12 @@
+/** postcss-bem-linter: define landing */
+
+@import '../variables';
+
+.landing {
+  &_title {
+    font-weight: normal;
+    font-size: 44px;
+    font-family: $f-rockwell;
+    text-align: center;
+  }
+}

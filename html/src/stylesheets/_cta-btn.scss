@@ -1,0 +1,98 @@
+/** postcss-bem-linter: define cta-btn */
+
+@import 'variables';
+
+.cta-btn {
+  display: inline-block;
+  box-sizing: border-box;
+  max-width: grid-width(2);
+  border: none;
+  border-radius: 4px;
+  padding: .45em .875em;
+  background: none;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, .1) inset;
+  font-size: 1em;
+  font-family: $f-sansserif;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all .25s;
+
+  &:hover:not(:disabled) {
+    background-color: $c-yellow;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .2) inset;
+  }
+
+  &:link,
+  &:visited {
+    color: $c-page-tc;
+  }
+
+  &:active,
+  &:hover:not(:disabled) {
+    color: darken($c-page-tc, 15%);
+  }
+
+  &:disabled {
+    opacity: .5;
+    cursor: default;
+  }
+
+  &--default {
+    background-color: $c-blue;
+  }
+  &--default:link,
+  &--default:visited {
+    color: $c-page-bg;
+    text-shadow: 0 1px 1px darken($c-blue, 10%);
+  }
+
+  &--default:active,
+  &--default:hover:not(:disabled) {
+    background-color: $c-blue-dark;
+    color: lighten($c-page-bg, 15%);
+  }
+
+  &--huge {
+    border-radius: 6px;
+    padding: .5em 2em;
+    font-weight: bold;
+    font-size: 24px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  &--arrow {
+    position: relative;
+    padding-right: 30px;
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      top: calc(50% - 7px);
+      right: 7px;
+      width: 15px;
+      height: 15px;
+      background: url('/images/arrow-small.svg') right center no-repeat;
+    }
+    &:hover::after {
+      background-image: url('/images/arrow-small--active.svg');
+    }
+  }
+
+  &--huge &_label {
+    display: block;
+
+    /* postcss-bem-linter: ignore */
+    .fonts-loaded & {
+      font-family: $f-rockwell;
+    }
+  }
+
+  &--huge &_sub-label {
+    display: block;
+    opacity: .7;
+    font-size: 13px;
+  }
+}

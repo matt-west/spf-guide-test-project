@@ -1,0 +1,21 @@
+/** postcss-bem-linter: define signup */
+
+@import '../variables';
+
+.signup {
+  position: relative;
+  margin: $grid-gutter 0 $grid-gutter / 4;
+  padding: $grid-gutter / 2 0;
+  background-color: #EFF5FC;
+  text-align: center;
+
+  &_button {
+    position: relative;
+    top: -$grid-gutter;
+  }
+
+  &_logos {
+    margin: -$grid-gutter 0 1em;
+    padding-top: $grid-gutter / 4;
+  }
+}

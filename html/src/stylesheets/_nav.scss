@@ -1,0 +1,184 @@
+/** postcss-bem-linter: define nav */
+
+@import 'variables';
+@import 'mixins';
+
+.nav {
+  flex: auto;
+
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  &--header {
+    text-align: center;
+
+    @include medium {
+      text-align: right;
+    }
+  }
+
+  &--footer {
+    text-align: center;
+
+    @include medium {
+      text-align: left;
+    }
+  }
+
+  &_list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    &--cta {
+      @include medium {
+        position: absolute;
+        right: 0;
+        text-align: right;
+      }
+    }
+    &--main {
+      font-weight: bold;
+      font-size: 14px;
+    }
+    &--secondary {
+      font-size: 14px;
+    }
+    &--legal {
+      font-size: 12px;
+    }
+  }
+
+  &--header &_list--cta {
+    order: 2;
+
+    margin: 1em 0 0;
+
+    @include medium {
+      display: none;
+    }
+  }
+
+  &--header &_list--main {
+    order: 1;
+  }
+  &--header &_list--secondary {
+    order: 0;
+  }
+  &--header &_list--legal {
+    display: none;
+  }
+
+  // Hide inline CTA buttons
+  &--header &_list--main &_item--btn,
+  &--header &_list--secondary &_item--btn {
+    display: none;
+    padding: 0;
+    background: none !important;
+
+    @include medium {
+      display: inline-block;
+    }
+  }
+
+  &--header &_list--secondary {
+    margin-bottom: .8em;
+    font-weight: bold;
+    font-size: 12px;
+  }
+
+  &--footer &_list {
+    margin-bottom: .5em;
+  }
+
+  &--footer &_list--main &_btn,
+  &--footer &_list--secondary &_btn {
+    display: none;
+  }
+
+  &--footer &_item:first-child {
+    @include medium {
+      padding-left: 0;
+    }
+  }
+
+  &_item {
+    display: inline-block;
+    padding: 2px 5px;
+
+    &-btn {
+      padding: 0;
+    }
+
+    @include large {
+      padding: 3px 8px;
+    }
+  }
+
+  &--header &_item {
+    border-radius: 3px;
+    transition: background .2s linear;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+
+    &:hover {
+      background-color: $c-yellow-medium;
+    }
+
+    &-btn:hover {
+      background-color: transparent;
+    }
+
+    &--current,
+    &--current:hover {
+      background-color: $c-dark;
+      color: $c-yellow;
+      cursor: default !important;
+    }
+  }
+
+  &_list--cta &_item {
+    margin-right: .5em;
+    padding: 0;
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+
+  &--header &_link:link,
+  &--header &_link:active,
+  &--header &_link:visited {
+    color: $c-dark;
+    text-decoration: none;
+  }
+
+  &--header &_item--current &_link:link,
+  &--header &_item--current &_link:hover,
+  &--header &_item--current &_link:active,
+  &--header &_item--current &_link:visited {
+    color: $c-yellow;
+  }
+
+  &--header &_list--secondary {
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+
+  &--header &_list--secondary &_link {
+    color: #93851A;
+  }
+
+  &--footer &_link:link,
+  &--footer &_link:visited {
+    color: $c-meta;
+  }
+
+  &--footer &_link:hover,
+  &--footer &_link:active {
+    color: $c-grey;
+  }
+}

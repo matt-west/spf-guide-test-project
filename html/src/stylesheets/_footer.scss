@@ -1,0 +1,94 @@
+/** postcss-bem-linter: define footer */
+
+@import 'variables';
+@import 'mixins';
+
+.footer {
+  margin-bottom: 25px;
+  padding: #{$grid-gutter / 4} 0;
+  background-color: $c-page-bg;
+  color: $c-base;
+  font-size: .875em;
+  line-height: 1.5;
+  text-align: center;
+  @keyframes heartbeat {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.1);
+    }
+  }
+
+  &_container {
+    @extend .u-container;
+  }
+
+  &_copyright {
+    color: $c-meta;
+
+    @include medium {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &_wildbit {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: $c-base;
+    font-size: $f-scale-smaller;
+  }
+
+  &_wildbit-logo {
+    display: inline-block;
+    width: 58px;
+    height: 16px;
+    margin-left: 5px;
+    overflow: hidden;
+    background: url('/images/logo-wildbit@2x.png') no-repeat 0 0;
+    background-size: 100%;
+    text-indent: 9999em;
+  }
+
+  &_love {
+    display: inline-block;
+    margin: 0 5px 2px;
+    color: #D10;
+    font-size: 1.75em; // 28px
+    line-height: .75em;
+  }
+
+  &:hover &_love {
+    animation: heartbeat 0.5s infinite;
+  }
+
+  /* postcss-bem-linter: ignore */
+  &_legal p {
+    margin: .8em 0 0;
+    font-size: $f-scale-smaller;
+    line-height: 1.5em;
+  }
+
+  /* postcss-bem-linter: ignore */
+  &_legal a {
+    color: $c-meta;
+  }
+
+  &_logo {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    margin: 1em 0 .4em;
+
+    @include medium {
+      margin: 0;
+      vertical-align: -2px;
+    }
+  }
+
+  @include medium {
+    text-align: left;
+  }
+}

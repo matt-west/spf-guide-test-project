@@ -1,0 +1,231 @@
+/* Customer story stats
+------------------------------ */
+
+.customer-stats {
+  padding: 15px 0;
+  background-color: $c-mint;
+  color: #FFF;
+
+  @include medium {
+    padding: 25px 0;
+  }
+}
+
+.stats-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  text-align: center;
+
+  @include medium {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+  .stats-list_item {
+    margin: 1.25em 0;
+    vertical-align: middle;
+    font-size: .875em;
+    text-align: center;
+
+    @include medium {
+      width: 33%;
+      margin: 0;
+    }
+
+    span {
+      display: block;
+    }
+  }
+  .stats-list_title {
+    margin-bottom: 1em;
+    color: mix($c-mint, #FFF, 20%);
+    font-weight: bold;
+  }
+  .stats-list_value {
+    font-size: 1.75em;
+    line-height: 1;
+
+    @include medium {
+      font-size: 2em;
+      line-height: 1.3;
+    }
+  }
+
+
+/* Feature list
+------------------------------ */
+
+.feature-list {
+  margin: 0;
+
+  li {
+    display: inline-block;
+    position: relative;
+    min-width: 85px;
+  }
+}
+
+  // Icons
+
+  .feature-list_icon {
+    display: block;
+    position: relative;
+    width: 30px;
+    height: 30px;
+    margin: 0 auto;
+    border-radius: 50%;
+    background-color: #FFF;
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      background-image: url('/images/i-features.svg');
+      background-repeat: no-repeat;
+      transform: translate(-50%, -50%);
+    }
+  }
+  .feature-list_delivery::before {
+    width: 15px;
+    height: 13px;
+    background-position: 0 0;
+  }
+  .feature-list_inbound::before {
+    width: 15px;
+    height: 13px;
+    background-position: -16px 0;
+  }
+  .feature-list_opentracking::before {
+    width: 15px;
+    height: 12px;
+    background-position: -32px 0;
+  }
+
+  // Label
+
+  .feature-list_label {
+    display: block;
+    padding-top: 5px;
+    font-weight: bold;
+    font-size: .85em;
+  }
+
+
+/* Intro text
+------------------------------ */
+
+.text-intro {
+  position: relative;
+  padding: 50px 0;
+  background-color: $c-lightest;
+  font-size: 1.1em;
+
+  .text-section {
+    margin: 0 auto;
+  }
+  :first-child {
+    margin-top: 0;
+  }
+  :last-child {
+    margin-bottom: 0;
+  }
+}
+
+
+/* Text sections
+------------------------------ */
+
+// TODO: replace with .text-scope?
+
+.text-section {
+  max-width: 580px;
+  margin: 60px auto;
+  border: 0;
+  padding: 0;
+  line-height: 1.6;
+
+  h2 {
+    @extend .title-section;
+
+    margin: 2em 0 .5em;
+  }
+  h3 {
+    margin: 2em 0 .5em;
+    font-size: 1.2em;
+  }
+  h4 {
+    margin: 1em 0 .5em;
+    font-size: 1.1em;
+  }
+  h5 {
+    margin: 1em 0 .1em;
+    font-size: 1em;
+  }
+  p {
+    margin: 0 0 1em;
+    color: $c-base;
+    font-size: 1em;
+  }
+  strong {
+    color: $c-dark;
+  }
+  ol,
+  ul {
+    margin: .5em 0 1em 2.5em;
+    color: $c-base;
+  }
+  dl {
+    color: $c-base;
+  }
+  dt {
+    padding-bottom: .25em;
+    color: $c-dark;
+    font-weight: bold;
+  }
+  dd {
+    padding-bottom: 1.5em;
+  }
+  .author {
+    margin-top: 3.5em;
+    padding-left: 38px;
+    color: #AAA;
+    line-height: 1.4;
+  }
+  .btn-signup {
+    margin-top: 3em;
+  }
+  .screenshot {
+    margin: 2em 0;
+
+    @include large {
+      margin-right: -50px;
+      margin-left: -50px;
+    }
+  }
+}
+  .callout-quote {
+    margin: 1.75em 0 1.6em;
+    border-left: 3px solid $c-yellow;
+    padding-left: 25px;
+    font-size: 1.25em;
+    line-height: 1.5;
+
+    @include medium {
+      font-size: 1.5em;
+    }
+    @include large {
+      margin-left: -95px;
+    }
+
+    :first-child::before {
+      content: '“';
+    }
+    :last-child::after {
+      content: '”';
+    }
+  }

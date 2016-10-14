@@ -1,0 +1,274 @@
+/* Pricing page
+---------------------------------------- */
+
+.scope-pricing {
+  margin-top: 30px;
+  color: #888;
+
+  :last-child {
+    margin-bottom: 0;
+  }
+
+  .title-chapter {
+    margin: 0 0 .66em;
+  }
+  p {
+    font-size: .85em;
+    line-height: 1.5;
+  }
+
+  @include small {
+    margin-top: 50px;
+  }
+}
+
+.pricing_signup {
+  margin-top: $grid-gutter / 2;
+  text-align: center;
+}
+
+/* Bulk prices
+---------------------------------------- */
+
+// Credit Chart
+
+.credit-chart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 0;
+  padding-left: 0;
+  text-align: center;
+
+  // Credits equator
+  $s-equals: 35px;
+
+  li {
+    width: 155px;
+    border-radius: 4px;
+    padding: 15px 0;
+    background-color: $c-lightest;
+    line-height: 1.1;
+    list-style: none;
+  }
+  p {
+    margin: 0 0 .25em !important;
+    color: #333;
+    font-size: 1.8em;
+    line-height: 1em;
+  }
+  span {
+    color: $c-grey;
+    font-size: .75em;
+  }
+
+  .credit-equals {
+    position: relative;
+    width: 80px;
+    background-color: transparent;
+
+    span {
+      display: block;
+      position: relative;
+      top: 50%;
+      z-index: 2;
+      width: $s-equals;
+      height: $s-equals;
+      margin: 0 auto;
+      border-radius: 50%;
+      background-color: $c-mint;
+      color: #FFF;
+      font-size: 25px;
+      line-height: 1.2em;
+    }
+    &::after {
+      content: '';
+
+      position: absolute;
+      top: 50%;
+      right: 0;
+      left: 0;
+      z-index: 1;
+      height: 0;
+      border-bottom: 2px dotted #EEE;
+    }
+  }
+
+  // No flexbox support
+
+  .no-flexboxlegacy &,
+  .no-flexbox & {
+    ul {
+      @extend .u-clearfix;
+
+      width: 390px;
+      margin: 0 auto;
+    }
+    ul li {
+      float: left;
+    }
+    .credit-equals span {
+      margin-top: -($s-equals/2) !important;
+      line-height: 1.4em !important;
+    }
+  }
+}
+
+
+// Prices table
+
+.tbl-bulk-prices {
+  position: relative;
+  color: $c-grey;
+  font-size: .9em;
+
+  th,
+  td {
+    display: block;
+    padding: .15em 0;
+    font-weight: normal;
+    text-align: left;
+
+    &:first-child {
+      padding-left: 0;
+    }
+    &:last-child {
+      padding-right: 0;
+    }
+
+    @include medium {
+      display: table-cell;
+      padding: .3em 1.25em;
+      white-space: nowrap;
+    }
+  }
+  th {
+    @include medium {
+      text-align: right;
+    }
+  }
+  td {
+    margin-bottom: 1em;
+
+    @include medium {
+      margin-bottom: 0;
+    }
+  }
+  strong {
+    color: #444;
+  }
+
+  @include medium {
+    margin: 0 auto;
+  }
+}
+
+.dedicated-ip {
+  margin: 35px 0 0 !important;
+  color: $c-grey !important;
+  font-size: .9em !important;
+}
+
+
+/* ThinkStrapped
+---------------------------------------- */
+
+.logo-thinkstrapped {
+  float: left;
+  width: 60px;
+  height: 28px;
+  margin: .2em 1em 1em 0;
+  border: 1px solid #EEE;
+  border-radius: 4px;
+  padding: 14px 19px;
+  transition: all 150ms ease-in-out;
+
+  &:hover {
+    border-color: #F5F5F5;
+    background-color: #F5F5F5;
+  }
+
+  @include medium {
+    margin-right: 0;
+    margin-left: -120px;
+  }
+}
+
+
+/* Features
+---------------------------------------- */
+
+.section-features {
+  padding: $grid-gutter 0;
+  background-color: $c-lightest;
+  text-align: center;
+}
+
+.features-icon {
+  margin: 0 0 1.25em;
+}
+.features-list {
+  margin: 1em 0 0;
+  padding-left: 0;
+}
+  .features-list_item {
+    margin: .5em 0 .75em;
+    padding-left: 16px;
+    background: url('/images/i-checkmark.svg') no-repeat 0 5px;
+    background-size: 10px 9px;
+    font-size: .875em;
+    text-align: left;
+    list-style: none;
+  }
+
+
+/* Customers
+---------------------------------------- */
+
+.section-quotes {
+  padding: $grid-gutter 0;
+
+  // Quotes
+  .quote {
+    position: relative;
+    margin: 0 0 1.25em 28px;
+    font-style: italic;
+    font-size: 1em !important;
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      top: 3px;
+      left: -28px;
+      width: 19px;
+      height: 15px;
+      background-image: url('/images/quote.svg');
+    }
+
+    @include medium {
+      margin-left: 0;
+    }
+  }
+
+  .avatar {
+    p {
+      display: inline-block;
+      padding-left: .75em;
+      vertical-align: 6px;
+    }
+    strong {
+      color: #333;
+    }
+    img {
+      display: inline-block;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+    }
+  }
+
+  .customers {
+    margin: 0 0 15px;
+  }
+}

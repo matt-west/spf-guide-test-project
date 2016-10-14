@@ -1,0 +1,188 @@
+/* Forms
+============================== */
+
+/* Fieldset */
+
+$c-fieldset-offset: 200px;
+
+fieldset {
+  margin: 20px 0;
+  border: 0;
+  border-top: 1px solid #DDD;
+  padding: 3em 0 0;
+  font-size: 1em;
+
+  h2 {
+    margin: 2.5em 0 1.5em;
+
+    @include medium {
+      padding-left: $c-fieldset-offset;
+    }
+  }
+}
+
+  .form-notice {
+    margin: 0 0 1.5em;
+
+    @include medium {
+      padding-left: $c-fieldset-offset;
+    }
+  }
+
+  .form-row {
+    margin: 0 0 1em;
+  }
+    .form-label {
+      padding-top: .4em;
+      color: #333;
+      font-weight: bold;
+
+      @include medium {
+        float: left;
+        width: $c-fieldset-offset - 30px;
+        text-align: right;
+      }
+
+      .form-row.aligned & {
+        padding: 0;
+      }
+    }
+    .form-field,
+    .form-comment,
+    .form-error {
+      @include medium {
+        margin-left: $c-fieldset-offset;
+      }
+    }
+    .form-field {
+      &.align {
+        padding-top: .5em;
+      }
+
+      input,
+      select,
+      textarea {
+        margin: .25em 0;
+        font-size: 100%;
+        font-family: inherit;
+        line-height: normal;
+      }
+      input[type='url'],
+      input[type='text'],
+      input[type='email'],
+      input[type='password'],
+      textarea {
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 340px;
+        margin: 0;
+        border: 1px solid #DDD;
+        border-radius: 4px;
+        padding: .65em;
+        box-shadow: 0 1px 2px rgba(#000, .06) inset;
+        font-size: 1em;
+        appearance: none;
+        transition: all .2s linear;
+
+        &:focus {
+          border: 1px solid shade(#DDD, 20%);
+          outline: none;
+          transition: all .2s linear;
+        }
+      }
+      select {
+        box-sizing: border-box;
+        max-width: 340px;
+        margin: 0;
+      }
+      label input[type='checkbox'] {
+        margin-right: .25em;
+        font-size: 1.125em;
+      }
+    }
+
+    .form-comment {
+      margin-top: .6em;
+
+      p {
+        margin: 0;
+        padding: .3 0 0;
+        color: #999;
+        font-size: .875em;
+      }
+    }
+
+
+/* Submit */
+
+.form-submit {
+  margin: 2em 0 0;
+  border-top: 1px solid #DDD;
+  padding: 2em 0 0;
+  text-align: center;
+}
+  .submit-details {
+    margin: 0 0 2em;
+  }
+  .form-submit input {
+    display: inline-block;
+    margin: 0 25px;
+    border: 0;
+    border-radius: 4px;
+    padding: 20px;
+    background-color: $c-blue;
+    color: #FFF;
+    font-weight: bold;
+    font-size: 1em;
+    line-height: 1;
+    text-shadow: 0 1px 1px darken($c-blue, 20%);
+    cursor: pointer;
+    outline: none;
+
+    &:hover {
+      background-color: $c-blue-dark;
+    }
+    &:active {
+      background-color: $c-blue-darkest;
+    }
+    &.i-next {
+      padding-right: 40px;
+      padding-left: 75px;
+      background-image: url('/images/i-next-big.svg');
+      background-repeat: no-repeat;
+      background-position: 30px 50%;
+
+      .no-svg & {
+        background-image: url('/images/i-next-big.png');
+      }
+    }
+  }
+
+
+/* Error Handling */
+
+.form-row.error {
+  margin: 0 0 1em;
+}
+.form-error {
+  padding: .5em 0 0;
+  font-size: .875em;
+
+  p {
+    margin: 0;
+    color: $c-red-alt;
+    font-weight: bold;
+  }
+  a {
+    color: inherit;
+  }
+}
+
+
+.form--no-offset {
+  margin-left: 0;
+  padding: 0;
+}
+.error-label {
+  margin-bottom: 1em !important;
+}

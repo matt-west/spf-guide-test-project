@@ -1,0 +1,39 @@
+/** postcss-bem-linter: define customer-logos */
+
+$customers: (ikea: 79px, litmus: 110px, desk: 79px, minecraft: 112px, livestream: 122px, unicef: 86px, asana: 98px, codeclimate: 176px, livechat: 85px, onepassword: 123px);
+$customer-position: 0;
+
+/* postcss-sorting: off */
+.customer-logos {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  &_logo {
+    display: inline-block;
+    height: 56px;
+    margin: 0 20px;
+    overflow: hidden;
+    background: url('/images/customers-logos@2x.png') no-repeat;
+    background-size: 1115px 56px;
+    opacity: 0.35;
+    text-indent: -9999em;
+    list-style: none;
+
+    @each $customer, $width in $customers {
+      /* postcss-bem-linter: ignore */
+      &--#{$customer} {
+        width: $width;
+        background-position: ($customer-position * -1) 0;
+      }
+      $customer-position: $customer-position + $width + 5px;
+    }
+
+    &:first-child {
+      margin-left: 0;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}

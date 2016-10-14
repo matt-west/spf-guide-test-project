@@ -1,0 +1,80 @@
+/** postcss-bem-linter: define customer-quote */
+@import 'variables';
+@import 'mixins';
+
+.customer-quote {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-sizing: border-box;
+  margin: 1.5em 0;
+  border-radius: 4px;
+  padding: 10px;
+  background-color: $c-beige-light;
+
+  &_content {
+    align-self: center;
+
+    display: flex;
+    padding: 0 $grid-gutter / 4;
+    line-height: 1.5;
+
+    &::before {
+      content: '“';
+
+      flex: 0 0 .65em;
+      align-self: flex-start;
+
+      display: none;
+      height: .5em;
+      color: $c-beige;
+      font-size: 80px;
+      font-family: $f-rockwell;
+      line-height: 1;
+
+      @include medium {
+        display: block;
+      }
+    }
+
+    @include large {
+      width: grid-width(4) + $grid-gutter / 2;
+    }
+  }
+  &_text {
+    color: darken($c-beige-dark, 30%);
+    font-style: italic;
+    font-size: $f-scale-big;
+    font-family: $f-serif;
+  }
+  &_customer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-left: $grid-gutter / 2;
+    font-size: $f-scale-smaller;
+
+    @include large {
+      align-self: flex-end;
+
+      flex-direction: column;
+    }
+  }
+  &_link {
+    align-self: center;
+
+    margin-left: 35px;
+
+    @include large {
+      position: relative;
+      bottom: -22px;
+      margin-left: 55px;
+      background-color: #FFF;
+      box-shadow: none;
+    }
+  }
+
+  @include large {
+    flex-direction: row;
+  }
+}

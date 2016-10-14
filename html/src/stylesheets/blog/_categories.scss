@@ -1,0 +1,279 @@
+// Based on https://github.com/wildbit/craft-product-framework/blob/master/html/src/stylesheets/blog/_categories.scss
+
+/* Categories
+------------------------------------------------- */
+
+.arc-categories {
+  display: flex;
+  flex-direction: column;
+  max-width: (grid-width(6) + $grid-gutter);
+  margin-top: $grid-gutter;
+  margin-bottom: #{$grid-gutter / 2};
+
+  @include medium {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .no-flexbox & {
+    @extend .u-clearfix;
+  }
+}
+
+.category {
+  position: relative;
+  margin-bottom: #{$grid-gutter / 3 * 1};
+
+  @include medium {
+    max-width: grid-width(2);
+    margin-right: #{$grid-gutter / 2};
+    margin-left:  #{$grid-gutter / 2};
+
+    &:first-of-type {
+      margin-left: 0;
+    }
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+
+  .no-flexbox & {
+    float: left;
+  }
+}
+.category--enlarge {
+  .category_title {
+    font-size: 1.5em;
+  }
+  .category_list {
+    font-size: 1em;
+  }
+}
+.category--wide {
+  max-width: grid-width(4);
+  margin-right: auto !important;
+  margin-left:  auto !important;
+
+  .no-flexbox & {
+    float: none;
+  }
+}
+.category--fullsize {
+  max-width: grid-width(6);
+  margin-right: auto !important;
+  margin-left:  auto !important;
+
+  .no-flexbox & {
+    float: none;
+  }
+}
+.category--detached {
+  margin-top: #{$grid-gutter / 3 * 2};
+}
+
+  // Title
+
+  .category_title {
+    @extend .title-chapter;
+
+    margin: 0 0 1.25em;
+    border-bottom: 2px solid $c-blog-cat-title-brd;
+    padding: 0 0 .15em;
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    small {
+      font-weight: normal;
+      font-size: 1em;
+    }
+  }
+  .category_title--product-news {
+    border-bottom-color: $c-product-news;
+    color: $c-product-news;
+  }
+  .category_title--email-delivery {
+    border-bottom-color: $c-email-delivery;
+    color: $c-email-delivery;
+  }
+  .category_title--engineering {
+    border-bottom-color: $c-engineering-txt;
+    color: $c-engineering-txt;
+  }
+  .category_title--customer-stories {
+    border-bottom-color: $c-customer-stories;
+    color: $c-customer-stories;
+  }
+  .category_title--postmortems {
+    border-bottom-color: $c-postmortems;
+    color: $c-postmortems;
+  }
+
+  // Year
+
+  .category_year {
+    display: none;
+    position: absolute;
+    left: -5em;
+    width: 4.25em;
+    margin: -1.1em 0 0;
+    color: $c-blog-cat-period;
+    font-weight: normal;
+    font-size: .75em;
+    text-align: right;
+
+    @include medium {
+      display: block;
+    }
+  }
+
+
+  // Offset date
+
+  .category_date {
+    display: none;
+    position: absolute;
+    left: -5em;
+    width: 4.25em;
+    color: $c-blog-cat-period;
+    font-size: .8125em;
+    line-height: 2.1;
+    text-align: right;
+
+    @include medium {
+      display: block;
+    }
+  }
+
+
+  // List
+
+  .category_list {
+    margin: 0;
+    padding-left: 0;
+    font-size: .875em;
+    line-height: 1.4;
+  }
+    .category_item {
+      margin: 0 0 .8em;
+      list-style: none;
+
+      @include medium {
+        margin-bottom: 1.3em;
+      }
+    }
+      .category_link {
+        &:link {
+          color: $c-link;
+          text-decoration-color: rgba($c-link, .5);
+        }
+        &:visited {
+          color: $c-visited;
+          text-decoration-color: rgba($c-visited, .5);
+        }
+        &:hover,
+        &:active {
+          color: $c-hover;
+          text-decoration-color: $c-hover;
+        }
+      }
+      .category_link--featured {
+        margin-left: -.3em;
+        padding: .2em .3em;
+        background-color: $c-entry-featured-bg;
+      }
+
+  .category_link-more {
+    display: inline-block;
+    margin: .5em 0 0;
+    font-weight: bold;
+    font-size: .933em;
+
+    &:link,
+    &:visited {
+      color: $c-dark;
+    }
+    &:hover,
+    &:active {
+      color: $c-hover;
+    }
+  }
+
+  // List
+
+  .category_logos {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0 -14px;
+    padding-left: 0;
+    list-style: none;
+  }
+    .category_logo {
+      width: 140px;
+      margin: 0 14px 28px;
+
+      img {
+        display: block;
+        max-width: 140px;
+        height: auto;
+        margin: 0 auto;
+      }
+    }
+
+
+/* Wildbit */
+
+.category_wildbit-logo {
+  display: inline-block;
+  width: 60px;
+  height: 17px;
+  margin: 0 .1em;
+  vertical-align: -3px;
+  overflow: hidden;
+  background: url('../images/logo-wildbit-blog.png') no-repeat;
+  background-size: 60px 17px;
+  text-indent: -999em;
+
+  @include retina {
+    background-image: url('../images/logo-wildbit-blog@2x.png');
+  }
+}
+.category--wildbit {
+  margin-bottom: 50px;
+  border-top: 1px solid #EEE;
+  padding-top: 50px;
+
+  .category_title {
+    margin-bottom: 1em;
+    border-bottom: 0;
+    padding-bottom: 0;
+    color: #085B4F;
+  }
+  .category_link {
+    &:link,
+    &:visited {
+      color: #49985C;
+      text-decoration-color: rgba(#49985C, .5);
+    }
+  }
+  .category_link[target='_blank'] {
+    &::after {
+      content: '';
+
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin-left: .35em;
+      vertical-align: -1px;
+      background: url('../images/i-new-window.svg') no-repeat;
+    }
+  }
+}
+
+
+

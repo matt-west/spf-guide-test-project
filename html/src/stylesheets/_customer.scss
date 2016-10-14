@@ -1,0 +1,38 @@
+/** postcss-bem-linter: define customer */
+
+.customer {
+
+  &-list & {
+    padding: 15px 0 60px;
+  }
+
+  &_logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 15px;
+    margin-bottom: 15px;
+
+    @include medium {
+      height: 90px;
+      margin: 0 0 0 grid-width(2);
+    }
+    @include large {
+      margin-right: $grid-column;
+    }
+  }
+
+  &_quote {
+    &::before {
+      content: '“';
+
+      @include medium {
+        margin-left: -.5em;
+      }
+    }
+    &::after {
+      content: '”';
+    }
+  }
+}

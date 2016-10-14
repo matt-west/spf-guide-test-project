@@ -1,0 +1,22 @@
+/** postcss-bem-linter: define pattern-mark */
+
+.pattern-mark {
+
+  &--top {
+    padding-top: 14px;
+    background: url('/images/pattern-mark-top.png') top left repeat-x;
+  }
+
+  &--bottom {
+    padding-bottom: 14px;
+    background: url('/images/pattern-mark-bottom.png') bottom left repeat-x;
+  }
+
+  &--top-bottom {
+    padding-top: 14px;
+    padding-bottom: 14px;
+    background:
+        url('/images/pattern-mark-top.png') top left repeat-x,
+        url('/images/pattern-mark-bottom.png') bottom left repeat-x;
+  }
+}

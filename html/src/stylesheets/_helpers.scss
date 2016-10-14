@@ -1,0 +1,126 @@
+// Based on https://github.com/wildbit/craft-product-framework/blob/master/html/src/stylesheets/_helpers.scss
+
+.hidden {
+  display: none !important;
+}
+
+.u-inline-list {
+  padding-left: 0;
+
+  > li {
+    display: inline;
+    list-style: none;
+  }
+}
+
+.u-clearfix {
+  &::before,
+  &::after {
+    content: ' ';
+
+    display: table;
+  }
+  &::after {
+    clear: both;
+  }
+}
+
+.u-meta {
+  color: $c-grey;
+}
+
+.u-sep {
+  margin: 0 .5em;
+}
+
+.u-nowrap {
+  white-space: normal;
+
+  @include medium {
+    white-space: nowrap;
+  }
+}
+
+.u-text-center {
+  text-align: center;
+}
+
+.u-enlarge {
+  font-size: 1.125em;
+}
+
+.mark {
+  margin: 0 .25em;
+  border-radius: 2px;
+  padding: .15em .4em;
+  background-color: #E5E5E5;
+  color: $c-dark;
+}
+
+.button-sml {
+  border-radius: 2px;
+  padding: .2em .5em .3em;
+  background-color: $c-blue;
+  color: #FFF !important;
+  font-weight: bold;
+  font-size: .9em;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $c-blue-dark;
+  }
+  &:active {
+    background-color: $c-blue-darkest;
+  }
+}
+
+.link-read {
+  display: inline-block;
+  box-sizing: border-box;
+  margin-right: .5em;
+  border: 0;
+  border-radius: 5px;
+  padding: .7em 1em .8em;
+  background-color: $c-blue;
+  color: #FFF !important;
+  font-weight: bold;
+  font-size: 1em;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: none;
+
+  &:hover {
+    background-color: $c-blue-dark;
+  }
+  &:active {
+    background-color: $c-blue-darkest;
+  }
+  span {
+    display: block;
+    margin-top: .2em;
+    color: mix(#FFF, $c-blue, 60%);
+    font-size: .7em;
+  }
+}
+.link-read--gray {
+  background-color: $c-meta;
+
+  &:hover {
+    background-color: $c-grey;
+  }
+  &:active {
+    background-color: $c-base;
+  }
+}
+.link-read--red {
+  background-color: $c-red;
+
+  &:hover {
+    background-color: darken($c-red, 5%);
+  }
+  &:active {
+    background-color: darken($c-red, 10%);
+  }
+}

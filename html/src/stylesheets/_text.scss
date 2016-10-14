@@ -1,0 +1,187 @@
+// Based on https://github.com/wildbit/craft-product-framework/blob/master/html/src/stylesheets/_text.scss
+
+/* Scope: Text
+------------------------------------------------- */
+
+.scope-text {
+  line-height: 1.625;
+  $s-checklist-box: 12px;
+  $s-checklist-spacing: 1.5em;
+
+  a:link {
+    color: $c-link;
+  }
+  a:visited {
+    color: $c-visited;
+  }
+  a:hover,
+  a:active {
+    color: $c-hover;
+  }
+
+  h1 {
+    margin: 0 0 .75em;
+    font-size: 1.5em;
+    line-height: 1.4;
+    text-align: center;
+
+    @include medium {
+      text-align: left;
+    }
+  }
+  h2 {
+    @extend .title-subsection;
+
+    margin: 2.38em 0 1em;
+  }
+  h3 {
+    margin: 2.5em 0 .8em;
+    color: $c-slate;
+    font-size: 1.117em;
+  }
+  h4 {
+    margin: 2.1em 0 .8em;
+    color: $c-slate;
+    font-size: 1em;
+  }
+  h5 {
+    margin: 2.1em 0 .8em;
+    color: $c-blue-darkest;
+    font-size: .9em;
+  }
+
+  p {
+    margin: .4em 0 1.1875em;
+  }
+  ul,
+  ol {
+    margin: .4em 0 1.6em 1.3em;
+    padding-left: 1.3em;
+
+    li {
+      margin-bottom: .625em;
+    }
+  }
+  ul {
+    li {
+      list-style: square;
+    }
+  }
+  dl {
+    color: $c-base;
+  }
+    dt {
+      margin-bottom: .25em;
+      color: $c-dark;
+      font-weight: bold;
+    }
+    dd {
+      margin: 0 0 1.5em;
+    }
+
+  code {
+    font-size: .941em;
+  }
+  p,
+  li {
+    code {
+      // These are technically the same, but use both
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+
+      /* stylelint-disable declaration-block-no-duplicate-properties */
+      // This is the dangerous one in WebKit, as it breaks things wherever
+      word-break: break-all;
+
+      // Instead use this non-standard one:
+      word-break: break-word;
+
+      /* stylelint-enable */
+      // Adds a hyphen where the word breaks, if supported (No Blink)
+      hyphens: auto;
+    }
+  }
+
+  pre {
+    margin: .4em 0 1.2em;
+    font: .765em/1.75 $f-monospace;
+
+    code {
+      font-size: 1em;
+    }
+  }
+  blockquote {
+    margin: .4em 0 1.2em;
+    border-right: 2px solid #F2F2F2;
+    border-left: 2px solid #F2F2F2;
+    padding: .4em 1.6em;
+    color: #666;
+    font-style: italic;
+  }
+  img {
+    max-width: 100% !important;
+    height: auto;
+    border: 2px solid #F2F2F2;
+    padding: 8px;
+  }
+  hr {
+    margin: 2em 0;
+    border-width: 2px 0 0;
+    border-style: solid;
+    border-color: #F2F2F2;
+    padding: 0;
+  }
+  table {
+    width: 100%;
+    margin: 1.6em 0;
+  }
+    th,
+    td {
+      border-bottom: 1px solid #F5F5F5;
+      padding: .4em .6em;
+      text-align: left;
+
+      &:first-child {
+        padding-left: 0;
+      }
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+    thead {
+      th,
+      td {
+        font-size: .75em;
+      }
+    }
+
+  .checklist {
+    margin: 0;
+    padding-left: $s-checklist-spacing;
+  }
+    .checklist li {
+      position: relative;
+      list-style: none;
+    }
+    .checklist li::before {
+      content: '';
+
+      position: absolute;
+      top: .4em;
+      left: -$s-checklist-spacing;
+      width: $s-checklist-box;
+      height: $s-checklist-box;
+      border: 1px solid $c-meta;
+      border-radius: 2px;
+    }
+    .checklist .is-checked::after {
+      content: '\2713';
+
+      position: absolute;
+      top: -.2em;
+      left: -1.15em;
+      color: $c-mint;
+      font-size: 1.25em;
+    }
+
+}

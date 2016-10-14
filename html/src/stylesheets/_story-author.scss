@@ -1,0 +1,61 @@
+/** postcss-bem-linter: define story-author */
+
+@import 'variables';
+
+.story-author {
+  display: flex;
+
+  /* postcss-bem-linter: ignore */
+  a {
+    color: inherit;
+  }
+  &_photo {
+    flex-shrink: 0;
+    align-self: flex-start;
+
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+  }
+  &_data {
+    margin: 0 !important;
+    line-height: 1.6;
+  }
+  &_name,
+  &_role {
+    display: block;
+  }
+  &_name {
+    font-weight: bold;
+  }
+  &_company-logo {
+    display: block;
+    margin: 1em 0;
+  }
+  &--horizontal {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: .9375em;  // 15px
+    text-align: left;
+  }
+  &--horizontal &_photo {
+    margin-right: 1em;
+  }
+  &--horizontal &_data {
+    line-height: 1.4;
+  }
+  &--horizontal &_name {
+    color: $c-dark;
+  }
+  &--center {
+    justify-content: center;
+  }
+  &--right {
+    justify-content: flex-end;
+  }
+  &--small &_photo {
+    width: 42px;
+    height: 42px;
+  }
+}

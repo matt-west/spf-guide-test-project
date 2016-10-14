@@ -1,0 +1,186 @@
+// Based on https://github.com/wildbit/craft-product-framework/blob/master/html/src/stylesheets/_variables.scss
+
+/* Typography
+------------------------------------------------- */
+
+$f-sansserif:           'Helvetica Neue', Arial, Helvetica, sans-serif;
+$f-monospace:           'Bitstream Vera Sans Mono', Consolas, Monaco, 'Lucida Console', 'Courier New', Courier, monospace, serif;
+$f-rockwell:            'Rockwell W01', $f-sansserif;
+$f-serif:               'ff-tisa-web-pro', serif;
+$f-code:                'Bitstream Vera Sans Mono', Monaco, $f-monospace;
+
+$f-scale-big: 1.35em;
+$f-scale-bigger: 1.125em;
+$f-scale-normal: 1em;
+$f-scale-smaller: .8235em;
+
+
+/* Grid
+------------------------------------------------- */
+
+$grid-cols:             6;
+$grid-base:             980px;
+$grid-column:           105px;
+$grid-gutter:           70px;
+
+
+/* Colors
+------------------------------------------------- */
+
+$c-red:                 #D25050;
+$c-red-alt:             #F35A3D;
+$c-red-bright:          #E71E17;
+$c-error:               #B00;
+
+$c-yellow:              #FFDE00;
+$c-yellow-medium:       #E5C700;
+$c-yellow-dark:         #760;
+
+$c-blue:                #007DCC;
+$c-blue-dark:           #006EB3;
+$c-blue-darkest:        #004775;
+
+$c-mint:                #4FC47F;
+$c-mint-dark:           #35A572;
+
+$c-slate-light:         #79808D;
+$c-slate:               #353942;
+$c-slate-dark:          #2A2E35;
+$c-slate-darkest:       #22252B;
+
+$c-beige-lightest:      #FCFCF6;
+$c-beige-light:         #F5F3EB;
+$c-beige:               #E6E3D5;
+$c-beige-dark:          #A9A696;
+
+$c-lightest:            $c-beige-lightest;
+$c-light:               $c-beige-light;
+$c-meta:                #AAA;
+$c-grey:                #888;
+$c-base:                #666;
+$c-dark:                #333;
+$c-popup:               #303030;
+
+// Base
+
+$c-page-bg:             #FFF;
+$c-page-tc:             $c-slate-darkest;
+
+  // Links
+
+$c-link:                $c-blue-dark;
+$c-visited:             desaturate(mix($c-link, $c-base, 50%), 25%);
+$c-hover:               #000;
+
+
+// Landing
+
+$c-hero-text:           #847516;
+
+
+// Docs
+
+$c-docs-txt:            #666;
+$c-docs-section-brd:    #DDD;
+$c-docs-type-txt:       #B1B1B1;
+$c-docs-root-brd:       #CFCFCF;
+$c-docs-tooltip-bg:     #333;
+$c-docs-link:           $c-blue;
+$c-docs-param-brd:      $c-light;
+$c-docs-nav-brd:        $c-light;
+$c-docs-title:          #333;
+
+$c-docs-toc-bg:         #333;
+$c-docs-toc-txt:        #949494;
+$c-docs-toc-title:      #FFF;
+$c-docs-toc-active:     #FFDE00;
+
+$c-docs-ex-bg:          #FCFCFC;
+$c-docs-ex-alt-bg:      #F5F5F5;
+$c-docs-ex-title:       #AAA;
+
+$c-docs-selector:       #3FB1A8;
+$c-docs-property:       #268BD2;
+
+$c-docs-badge-txt:      #FFF;
+$c-docs-badge-bg:       #CFCFCF;
+$c-docs-b-new-bg:       #E71E17;
+$c-docs-b-legacy-bg:    #333;
+
+
+// Code view snippets
+
+$c-cv-bg:               $c-slate;
+$c-cv-txt:              $c-slate-light;
+$c-cv-tabs-bg:          $c-slate-dark;
+$c-cv-tabs-active:      $c-yellow;
+
+
+/* Blog
+------------------------------------------------- */
+
+$c-product-news:        #4799CC;
+$c-email-delivery:      #21A658;
+$c-engineering:         $c-yellow;
+$c-engineering-txt:     $c-yellow-medium;
+$c-customer-stories:    #CC7AA3;
+$c-postmortems:         #888;
+
+// Entries
+
+$c-entry-latest-brd:    #F2F2F2;
+$c-entry-latest-bg:     mix(#FFF, $c-mint, 90%);
+$c-entry-solo-brd:      #F2F2F2;
+
+$c-entry-title-txt:     #000;
+$c-entry-author-brd:    #EEE;
+$c-entry-meta-txt:      $c-meta;
+$c-entry-category-txt:  $c-meta;
+$c-entry-featured-bg:   mix(#FFF, $c-yellow, 85%);
+
+// Matrix content styles
+
+$c-entry-editors-txt:   #777;
+$c-entry-editors-brd:   #F2F2F2;
+$c-entry-pullquote:     $c-blue;
+$c-entry-code-bg:       $c-slate;
+$c-entry-sidenote-txt:  $c-meta;
+$c-entry-figcaption:    $c-meta;
+
+// Entries navigation
+
+$c-nav-rel-l-txt:       $c-link;
+$c-nav-rel-l-brd:       mix(#FFF, $c-link, 80%);
+$c-nav-rel-l-meta:      $c-meta;
+$c-nav-rel-h-txt:       $c-hover;
+$c-nav-rel-h-brd:       mix(#FFF, $c-hover, 66%);
+$c-nav-rel-h-meta:      #666;
+
+// Subscribe
+
+$c-subscribe-txt:       #555;
+$c-subscribe-title:     #000;
+$c-subscribe-subtitle:  #666;
+$c-subscribe-brd:       #EAEAEA;
+$c-subscribe-bg:        #F7F7F7;
+$c-subscribe-btn:       #49985C;
+$c-subscribe-btn-h:     #085B4F;
+$c-subscribe-field-brd: #CCC;
+
+$c-subscribe-rss:       #EB8B2D;
+$c-subscribe-twitter:   #55ACEE;
+$c-subscribe-instagram: #015887;
+$c-subscribe-medium:    #222;
+$c-subscribe-dribbble:  #C87396;
+
+// Categories
+
+$c-blog-cat-title-brd:  #EEE;
+$c-blog-cat-period:     #CCC;
+
+// Explorer
+
+$c-explorer-get:        $c-blue;
+$c-explorer-put:        #E09A44;
+$c-explorer-post:       #45BD76;
+$c-explorer-delete:     #D25050;

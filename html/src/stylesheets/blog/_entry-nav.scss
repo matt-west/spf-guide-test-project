@@ -1,0 +1,138 @@
+// Based on https://github.com/wildbit/craft-product-framework/blob/master/html/src/stylesheets/blog/_entry-nav.scss
+
+/* Entry navigation
+------------------------------------------------- */
+
+.entry-nav {
+  margin: 0 0 $grid-gutter;
+}
+
+
+.nav-rel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 0 $grid-gutter;
+  padding-left: 0;
+  line-height: 1.5;
+
+  @include medium {
+    flex-direction: row;
+  }
+
+  .no-flexbox & {
+    @extend .u-clearfix;
+  }
+}
+
+  .nav-rel_item {
+    flex-grow: 1;
+
+    max-width: grid-width(3);
+    margin-bottom: 1.5em;
+    list-style: none;
+
+    @include medium {
+      margin-bottom: 0;
+    }
+
+    // This one is supposed to be :last-child, but IE8 doesn't support it
+    .no-flexbox & {
+      float: right;
+    }
+    .no-flexbox &:first-child {
+      float: left;
+    }
+  }
+    .nav-rel_link {
+      display: block;
+      border: 1px solid $c-nav-rel-l-brd;
+      border-radius: 3px;
+      padding: 1em 1em 1.1em;
+      text-decoration: none;
+
+      &:link,
+      &:visited {
+        color: $c-nav-rel-l-txt;
+      }
+      &:focus,
+      &:hover,
+      &:active {
+        border-color: $c-nav-rel-h-brd;
+        color: $c-nav-rel-h-txt;
+        outline: none;
+
+        .nav-rel_meta {
+          color: $c-nav-rel-h-meta;
+        }
+      }
+    }
+      .nav-rel_title {
+        display: block;
+        overflow: hidden;
+        font-weight: bold;
+        text-decoration: underline;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        &::before,
+        &::after {
+          display: inline-block;
+          width: 0;
+          height: 0;
+          margin: 0 .4em;
+          border: 6px solid transparent;
+          vertical-align: -.05em;
+        }
+      }
+      .nav-rel_meta {
+        display: block;
+        color: $c-nav-rel-l-meta;
+        font-size: .875em;
+      }
+
+    // Previous
+
+    .nav-rel_link--prev {
+      .nav-rel_title {
+        &::before {
+          content: '';
+
+          margin-left: 0;
+          border-right-color: $c-nav-rel-l-txt;
+          border-left-width: 0;
+        }
+      }
+      &:focus,
+      &:hover,
+      &:active {
+        .nav-rel_title::before {
+          border-right-color: $c-nav-rel-h-txt;
+        }
+      }
+    }
+
+    // Next
+
+    .nav-rel_link--next {
+      @include medium {
+        text-align: right;
+      }
+
+      .nav-rel_title {
+        &::after {
+          content: '';
+
+          margin-right: 0;
+          border-right-width: 0;
+          border-left-color: $c-nav-rel-l-txt;
+        }
+      }
+      &:focus,
+      &:hover,
+      &:active {
+        .nav-rel_title::after {
+          border-left-color: $c-nav-rel-h-txt;
+        }
+      }
+    }

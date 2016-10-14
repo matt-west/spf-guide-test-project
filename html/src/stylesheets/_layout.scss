@@ -1,0 +1,322 @@
+/* Layout
+---------------------------------------- */
+@import 'variables';
+@import 'mixins';
+
+/* postcss-sorting: off */
+.u-container {
+  max-width: grid-width(6);  // 980px
+  margin: 0 auto;
+  padding: 0 15px;
+
+  @include medium {
+    padding: 0 #{$grid-gutter / 2};
+  }
+}
+.u-container--narrow {
+  max-width: grid-width(4);  // 630px
+}
+.u-container--detached {
+  margin-top: #{$grid-gutter / 2};
+  margin-bottom: #{$grid-gutter / 2};
+}
+.u-container--confirm {
+  margin-top: $grid-gutter;
+  margin-bottom: $grid-gutter;
+
+  @media only screen and (min-height: 650px) {
+    margin-top: ($grid-gutter * 2);
+    margin-bottom: ($grid-gutter * 2);
+  }
+}
+
+
+// Used on Home and Pricing
+
+.wrapper {
+  position: relative;
+  padding: #{$grid-gutter / 2} 0;
+  color: $c-base;
+
+  .title-section {
+    margin: 0 0 .5em;
+  }
+  .title-chapter {
+    margin: 0 0 .5em;
+  }
+  h4 {
+    margin: 1.5em 0 .222em;
+    color: $c-dark;
+    font-size: 1.125em; // 18px
+  }
+  p {
+    margin: .4em 0 1em;
+    line-height: 1.6;
+
+    strong {
+      color: $c-dark;
+    }
+  }
+
+  @include medium {
+    padding-top: $grid-gutter;
+    padding-bottom: $grid-gutter;
+  }
+}
+
+.figure-scale {
+  img {
+    display: block;
+    width: 100%;
+  }
+}
+
+
+// Text pages (legal)
+
+.text-page {
+  color: #444;
+}
+
+
+/* Grid
+ * Based on https://philipwalton.github.io/solved-by-flexbox/demos/grids/
+------------------------------------------------------------------------- */
+
+.u-grid {
+  display: flex;
+  flex-wrap: wrap; // This breaks IE
+}
+  .u-grid-cell {
+    flex: 1;
+
+    box-sizing: border-box;
+  }
+
+// With gutters
+
+.u-grid--gutters-small {
+  margin: -15px 0 0 -15px;
+
+  > .u-grid-cell {
+    padding: 15px 0 0 15px;
+  }
+}
+.u-grid--gutters-medium {
+  $margin: $grid-gutter / 2;
+  margin: #{-$margin} 0 0 #{-$margin};
+
+  > .u-grid-cell {
+    padding: #{$margin} 0 0 #{$margin};
+  }
+}
+.u-grid--gutters-large {
+  $margin: $grid-gutter / 2;
+  margin: #{-$margin} 0 0 #{-$margin};
+
+  > .u-grid-cell {
+    padding: #{$margin} 0 0 #{$margin};
+  }
+
+  @include medium {
+    $margin: $grid-gutter;
+    margin: #{-$margin} 0 0 #{-$margin};
+
+    > .u-grid-cell {
+      padding: #{$margin} 0 0 #{$margin};
+    }
+  }
+}
+.u-grid--gutters-1of12 {
+  $margin: 0;
+  margin: #{-$margin} 0 0 #{-$margin};
+
+  > .u-grid-cell {
+    padding: #{$margin} 0 0 #{$margin};
+  }
+
+  @include medium {
+    $margin: col-width($grid-gutter / 2, 12) + $grid-gutter / 2;
+    margin: #{-$margin} 0 0 #{-$margin};
+
+    > .u-grid-cell {
+      padding: #{$margin} 0 0 #{$margin};
+    }
+  }
+}
+.u-grid--gutters-out {
+  margin-left: 0;
+}
+
+// Alignment per row
+
+.u-grid--top {
+  align-items: flex-start;
+}
+.u-grid--bottom {
+  align-items: flex-end;
+}
+.u-grid--center {
+  align-items: center;
+}
+
+// Alignment per cell
+
+.u-grid-cell--top {
+  align-self: flex-start;
+}
+.u-grid-cell--bottom {
+  align-self: flex-end;
+}
+.u-grid-cell--center {
+  align-self: center;
+}
+
+// Cells widths
+@include large {
+  @for $i from 1 through $grid-cols {
+    .u-grid-cell--#{$i}of#{$grid-cols} {
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: grid-width($i);
+
+      box-sizing: content-box;
+      width: grid-width($i);
+    }
+  }
+
+  $doubleCols: $grid-cols * 2;
+  @for $i from 1 through $doubleCols {
+    .u-grid-cell--#{$i}of#{$doubleCols} {
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: grid-width($i, $grid-gutter / 2, $doubleCols);
+
+      box-sizing: content-box;
+      width: grid-width($i, $grid-gutter / 2, $doubleCols);
+    }
+  }
+}
+
+// Responsive Modifiers
+
+.u-grid--fit > .u-grid-cell {
+  flex: 1;
+}
+.u-grid--full > .u-grid-cell {
+  flex: 0 0 100%;
+}
+.u-grid--1of2 > .u-grid-cell {
+  flex: 0 0 50%;
+}
+.u-grid--1of3 > .u-grid-cell {
+  flex: 0 0 33.3333%;
+}
+.u-grid--1of4 > .u-grid-cell {
+  flex: 0 0 25%;
+}
+
+@include small {
+  .u-grid--fit-at-small > .u-grid-cell {
+    flex: 1;
+  }
+  .u-grid--full-at-small > .u-grid-cell {
+    flex: 0 0 100%;
+  }
+  .u-grid--1of2-at-small > .u-grid-cell {
+    flex: 0 0 50%;
+  }
+  .u-grid--1of3-at-small > .u-grid-cell {
+    flex: 0 0 33.3333%;
+  }
+  .u-grid--1of4-at-small > .u-grid-cell {
+    flex: 0 0 25%;
+  }
+}
+
+@include medium {
+  .u-grid--fit-at-medium > .u-grid-cell {
+    flex: 1;
+  }
+  .u-grid--full-at-medium > .u-grid-cell {
+    flex: 0 0 100%;
+  }
+  .u-grid--1of2-at-medium > .u-grid-cell {
+    flex: 0 0 50%;
+  }
+  .u-grid--1of3-at-medium > .u-grid-cell {
+    flex: 0 0 33.3333%;
+  }
+  .u-grid--1of4-at-medium > .u-grid-cell {
+    flex: 0 0 25%;
+  }
+}
+
+@include large {
+  .u-grid--fit-at-large > .u-grid-cell {
+    flex: 1;
+  }
+  .u-grid--full-at-large > .u-grid-cell {
+    flex: 0 0 100%;
+  }
+  .u-grid--1of2-at-large > .u-grid-cell {
+    flex: 0 0 50%;
+  }
+  .u-grid--1of3-at-large > .u-grid-cell {
+    flex: 0 0 33.3333%;
+  }
+  .u-grid--1of4-at-large > .u-grid-cell {
+    flex: 0 0 25%;
+  }
+}
+
+
+/* Centered block
+---------------------------------------- */
+
+.u-centered-block {
+  margin: 0 auto;
+}
+.u-centered-block--5 {
+  max-width: grid-width(5);
+}
+.u-centered-block--4 {
+  max-width: grid-width(4);
+}
+.u-centered-block--3 {
+  max-width: grid-width(3);
+}
+.u-centered-block--2 {
+  max-width: grid-width(2);
+}
+.u-centered-block--1 {
+  max-width: grid-width(1);
+}
+
+/* Text align
+---------------------------------------- */
+.u-textalign-left {
+  text-align: left;
+
+  @include viewport-modifiers {
+    text-align: left;
+  }
+}
+
+.u-textalign-center {
+  text-align: center;
+
+  @include viewport-modifiers {
+    text-align: center;
+  }
+}
+
+.u-textalign-right {
+  text-align: right;
+
+  @include viewport-modifiers {
+    text-align: right;
+  }
+}
+
+

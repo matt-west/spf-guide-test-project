@@ -1,0 +1,31 @@
+/** postcss-bem-linter: define hero-home */
+
+@import '../variables';
+
+.hero-home {
+  padding: ($grid-gutter / 2) 0;
+  background-color: $c-yellow;
+  text-align: center;
+
+  &_illustration {
+    width: 100%;
+    max-width: 889px;
+    height: auto;
+    margin-top: $grid-gutter / 2;
+  }
+
+  &_tagline {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0;
+    font: 24px/1.1 $f-rockwell;
+    text-align: center;
+
+    @include medium {
+      font-size: 34px;
+    }
+    @include large {
+      font-size: 44px;
+    }
+  }
+}

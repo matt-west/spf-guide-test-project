@@ -1,0 +1,123 @@
+/* Guides
+------------------------------ */
+
+// List of guides
+
+.guides {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+  margin-bottom: $grid-gutter;
+
+  .no-flexbox & {
+    overflow: hidden;
+  }
+
+  @include medium {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+}
+  .guide-link {
+    position: relative;
+    box-sizing: border-box;
+    margin: $grid-gutter 0 15px;
+    border: 3px solid $c-blue-darkest;
+    border-radius: 3px;
+    padding: 0 20px 15px;
+    line-height: 1.4;
+    text-align: center;
+    text-decoration: none;
+    transition: 200ms background;
+
+    &,
+    &:link,
+    &:visited {
+      color: mix(#FFF, $c-blue-dark, 33%);
+    }
+    &:hover {
+      background-color: #F5FDFF;
+    }
+
+    .no-flexbox & {
+      display: block;
+      margin-bottom: (21px + 45px);
+    }
+
+    @include medium {
+      flex: 0 1 46.5%;
+
+      .no-flexbox & {
+        float: left;
+        width: 46.5%;
+        margin-right: 7%;
+        margin-bottom: 20px;
+
+        &:nth-child(2n+2) { // Last in a row
+          margin-right: 0 !important;
+        }
+        &:nth-child(2n+3) { // First in a row
+          clear: left;
+        }
+      }
+    }
+    @include large {
+      flex-basis: auto;
+
+      width: grid-width(3);
+
+      .no-flexbox & {
+        width: grid-width(3);
+        margin-right: $grid-gutter;
+      }
+    }
+  }
+    .guide-link_icon {
+      display: inline-block;
+      margin-top: -3px;
+      border-top: 3px solid #FFF;
+      padding: 0 15px;
+
+      > img {
+        transform: translateY(-50%);
+      }
+    }
+    .guide-link_title {
+      margin: .75em 0;
+      color: $c-blue-darkest;
+      font: 1.3em/1.4 $f-rockwell;
+    }
+    .guide-link_desc {
+      margin: 0 0 1em;
+      font-size: .9375em;
+    }
+
+
+// Header image
+
+.guide-head_image {
+  position: relative;
+  z-index: 100;
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+
+// Download as PDF
+
+.guide-book {
+  display: flex;
+  align-items: center;
+  width: 300px;
+  margin: 0 auto 30px;
+  border-radius: 2px;
+}
+.guide-book_cover {
+  padding-right: 15px;
+}
+.guide-book_callout-title {
+  margin: -.66em 0 .33em !important;
+  padding: 0;
+}
