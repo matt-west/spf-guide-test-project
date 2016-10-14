@@ -1,1 +1,1 @@
-/* Write your javascript here */
+/* ----------------- Write your JS here ---------------- */
