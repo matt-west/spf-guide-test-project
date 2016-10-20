@@ -1,22 +1,39 @@
 /* ----------------- Write your code here ---------------- */
 
+$namespace: '.spf-tool';
+
 $g-border-radius: 3px;
 
-.spf-tool {
+#{$namespace} {
   box-sizing: border-box;
 
   max-width: 630px;
   margin: 0 auto 70px;
-  padding: 30px;
-
-  background: $c-yellow;
-  border-radius: $g-border-radius;
 
   &_pane {
     display: none;
+    background: $c-yellow;
+    border-radius: $g-border-radius;
+    padding: 2em;
 
     &--visible {
       display: block;
+    }
+
+    &--existing {
+      background: $c-mint-dark;
+      color: #FFF;
+
+      a,
+      a:link,
+      a:visited {
+        color: #FFF;
+
+        &:hover,
+        &:focus {
+          color: darken($c-mint-dark, 15%);
+        }
+      }
     }
   }
 
@@ -29,10 +46,24 @@ $g-border-radius: 3px;
     margin: 0 0 .75em;
   }
 
-  &_form {}
+  &_form {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &_errors {
+    width: 100%;
+    margin: 0 0 1em 0;
+    border-radius: $g-border-radius;
+    background-color: $c-red;
+    color: #FFF;
+    padding: .7em 1em;
+    list-style: none;
+  }
 
   &_label {
     display: block;
+    width: 100%;
     margin-bottom: 1em;
   }
 
@@ -40,24 +71,73 @@ $g-border-radius: 3px;
     box-sizing: border-box;
 
     font-family: $f-sansserif;
-    font-size: $f-scale-big;
+    font-size: $f-scale-bigger;
 
     display: block;
-    width: 100%;
-    padding: 7px 15px;
-    margin-bottom: 1em;
+    flex-grow: 4;
+    padding: .45em .9em;
 
     border-radius: $g-border-radius;
-    border: 3px solid $c-dark;
+    border: 1px solid $c-yellow-medium;
+    box-shadow: 0 1px 2px rgba(#000, .06) inset;
     outline: none;
 
     &:focus {
-      border-color: $c-blue-dark;
+      border-color: $c-yellow-dark;
     }
   }
 
   &_submit {
+    flex-grow: 1;
     color: #FFF;
     text-shadow: 0 1px 1px $c-blue-darkest;
+    margin-left: 1em;
+  }
+
+  &_instruction {
+    font-weight: 500;
+    background-color: $c-slate-darkest;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUiIGhlaWdodD0iMTUiIHZpZXdCb3g9IjAgMCAxNSAxNSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+YXJyb3ctc21hbGw8L3RpdGxlPjxwYXRoIGQ9Ik0xLjEzMyA3LjI2OGgxMi4yOG0uMzU1IDBMNy45NiAxMy4wNzZtNS44MDgtNS44MDhMNy45NiAxLjQ2IiBzdHJva2U9IiNGRkUwMDAiIHN0cm9rZS13aWR0aD0iMyIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9zdmc+);
+    background-repeat: no-repeat;
+    background-position: 1em 52%;
+    background-size: .8em .8em;
+
+    border-radius: $g-border-radius $g-border-radius 0 0;
+    margin: 0;
+    padding: .6em 1em .6em 2.5em;
+    color: #FFF;
+  }
+
+  &_code {
+    border-radius: 0 0 $g-border-radius $g-border-radius;
+    background-color: $c-slate;
+    color: #FFF;
+    padding: 1em;
+    margin-bottom: 1em;
+  }
+
+  &_restart {
+    float: right;
+    margin-top: .45em;
+    color: $c-page-tc;
+
+    &:link,
+    &:visited {
+      color: $c-page-tc;
+    }
+
+    &:hover,
+    &:focus {
+      color: $c-blue;
+    }
+
+    #{$namespace}_pane--existing & {
+      float: none;
+
+      &:link,
+      &:visited {
+        color: #FFF;
+      }
+    }
   }
 }

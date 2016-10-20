@@ -7,7 +7,6 @@ var SpfTool = {
 
   panes: null,
 
-
   /**
    * Initialise the SPF tool.
    *
@@ -19,8 +18,23 @@ var SpfTool = {
 
     // Setup Event Listeners
     document.querySelector('.spf-tool_form').addEventListener('submit', this.checkSpfRecord);
+
+    Array.prototype.forEach.call(document.querySelectorAll('.spf-tool_restart'), function(link) {
+      link.addEventListener('click', SpfTool.resetTool);
+    });
   },
 
+  /**
+   * Reset the tool content and return to the satrt page.
+   *
+   * @param {Event} event Click event.
+   */
+  resetTool: function(event) {
+    event.preventDefault();
+
+    SpfTool.result = null;
+    SpfTool.showPane('start');
+  },
 
   /**
    * Display a pane.
@@ -51,18 +65,16 @@ var SpfTool = {
   checkSpfRecord: function(event) {
     event.preventDefault();
 
-    var domain = document.querySelector('.spf-tool_input').value;
+    document.querySelector('.spf-tool_submit').setAttribute('disabled', 'disabled');
 
-    // Basic input validation
-    if (!domain || !domain.replace(/\s/g, '').length) {
-      alert('Please specify a domain name'); // TODO: Display validation message.
-      return;
+    // Remove any errors.
+    if (document.querySelector('.spf-tool_errors')) {
+      document.querySelector('.spf-tool_errors').remove();
     }
 
-    // Show a loading state.
-    SpfTool.showPane('loading');
+    var domain = document.querySelector('.spf-tool_input').value;
 
-    // Make a requet to check the DNS.
+    // Make a request to check the DNS.
     var request = new XMLHttpRequest();
 
     request.addEventListener('load', SpfTool.handleApiSuccess);
@@ -76,6 +88,7 @@ var SpfTool = {
       service_spf: SERVICE_SPF
     }));
 
+    document.querySelector('.spf-tool_input').value = '';
   },
 
   /**
@@ -84,6 +97,8 @@ var SpfTool = {
    * @return {undefined}
    */
   handleApiSuccess: function() {
+    document.querySelector('.spf-tool_submit').removeAttribute('disabled');
+
     var result = JSON.parse(this.responseText);
 
     if (this.status !== 200) {
@@ -91,20 +106,7 @@ var SpfTool = {
       return;
     }
 
-    var result = JSON.parse(this.responseText);
-
-    switch(result.operation) {
-      case 'create':
-
-        break;
-      case 'modify':
-
-        break;
-      case 'existing':
-
-        break;
-    }
-
+    SpfTool.displayResult(result);
   },
 
   /**
@@ -113,6 +115,8 @@ var SpfTool = {
    * @return {undefined}
    */
   handleApiError: function() {
+    document.querySelector('.spf-tool_submit').removeAttribute('disabled');
+
     var result = JSON.parse(this.responseText);
     SpfTool.showErrors(result.errors);
   },
@@ -124,8 +128,75 @@ var SpfTool = {
    * @return {undefined}
    */
   showErrors: function(errors) {
-    console.log(errors);
+    var errorsContainer = document.querySelector('.spf-tool_errors'),
+        form = document.querySelector('.spf-tool_form'),
+        input = document.querySelector('.spf-tool_input');
+
+    if (errorsContainer) {
+      errorsContainer.remove();
+    }
+
+    var errorList = document.createElement('ul');
+    errorList.classList.add('spf-tool_errors');
+
+    Array.prototype.forEach.call(errors, function(error) {
+      var item = document.createElement('li');
+      item.innerText = error;
+      errorList.appendChild(item);
+    });
+
+    form.insertBefore(errorList, input);
+
     SpfTool.showPane('start');
+  },
+
+  /**
+   * Display the result to the user.
+   *
+   * @param  {Object} result The object returned by the API call.
+   * @return {undefined}
+   */
+  displayResult: function(result) {
+    if (result.operation === 'create' || result.operation === 'modify') {
+      // Set code block content.
+      var codeBlock = document.querySelector('.spf-tool_pane--' + result.operation + ' .spf-tool_code code');
+      codeBlock.innerText = result.record;
+
+      // Set email link.
+      var emailLink = document.querySelector('.spf-tool_pane--' + result.operation + ' .spf-tool_email');
+      emailLink.href = SpfTool.generateEmailString(result.operation, result.record, result.domain);
+    }
+
+    SpfTool.showPane(result.operation);
+  },
+
+  /**
+   * Generate the email link.
+   *
+   * @param  {String} operation
+   * @param  {String} record
+   * @param  {String} domain
+   * @return {String}
+   */
+  generateEmailString: function(operation, record, domain) {
+    var subject;
+
+    var body = 'Hello!\n\n';
+    body += 'Can you please update the DNS records for ' + domain + '\n\n';
+
+    if (operation === 'create') {
+      subject = 'Create an SPF policy for ' + domain;
+      body += 'We need to add the following TXT record to define the SPF policy for the domain:\n';
+    } else if (operation === 'modify') {
+      subject = 'Update the SPF policy for ' + domain;
+      body += 'We need to update the SPF TXT record on the domain to:\n';
+    }
+
+    body += record + '\n\n';
+    body += 'You can find more information about SPF policies here: https://postmarkapp.com/guides/spf\n\n';
+    body += 'Thank you!';
+
+    return 'mailto:?subject=' + encodeURI(subject) + '&body=' + encodeURI(body);
   }
 
 };
