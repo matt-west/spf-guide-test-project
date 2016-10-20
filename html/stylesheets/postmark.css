@@ -3694,3 +3694,39 @@ pre[class*='language-'] {
     transition: all .5s ease; }
 
 /* ----------------- Write your code here ---------------- */
+.spf-tool {
+  box-sizing: border-box;
+  max-width: 630px;
+  margin: 0 auto 70px;
+  padding: 30px;
+  background: #FFDE00;
+  border-radius: 3px; }
+  .spf-tool_pane {
+    display: none; }
+    .spf-tool_pane--visible {
+      display: block; }
+  .spf-tool_title {
+    font-family: "Rockwell W01", "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-size: 1.35em;
+    font-weight: normal;
+    line-height: 1.2;
+    margin: 0 0 .75em; }
+  .spf-tool_label {
+    display: block;
+    margin-bottom: 1em; }
+  .spf-tool_input {
+    box-sizing: border-box;
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-size: 1.35em;
+    display: block;
+    width: 100%;
+    padding: 7px 15px;
+    margin-bottom: 1em;
+    border-radius: 3px;
+    border: 3px solid #333;
+    outline: none; }
+    .spf-tool_input:focus {
+      border-color: #006EB3; }
+  .spf-tool_submit {
+    color: #FFF;
+    text-shadow: 0 1px 1px #004775; }

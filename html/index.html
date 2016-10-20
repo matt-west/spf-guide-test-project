@@ -131,6 +131,57 @@
 
 
   <!----------------------------------------------
+  SPF Tool
+  ---------------------------------------------->
+  <div class="spf-tool">
+
+    <!---------------------
+    Start
+    ---------------------->
+    <div class="spf-tool_pane spf-tool_pane--start spf-tool_pane--visible">
+      <h2 class="spf-tool_title">Ready to get started?</h2>
+      <form action="#" method="post" class="spf-tool_form">
+        <label for="spf_domain" class="spf-tool_label">Enter your domain name and we’ll check your DNS records to see if you need to set up SPF.</label>
+        <input type="text" id="spf_domain" class="spf-tool_input" placeholder="your-awesome-domain.com" />
+        <button type="submit" class="cta-btn cta-btn--default spf-tool_submit">Check DNS</button>
+      </form>
+    </div>
+
+    <!---------------------
+    Loading
+    ---------------------->
+    <div class="spf-tool_pane spf-tool_pane--loading">
+      <h2 class="spf-tool_title">Sit tight while we check your domains DNS records...</h2>
+    </div>
+
+
+    <!---------------------
+    Add New Record
+    ---------------------->
+    <div class="spf-tool_pane spf-tool_pane--create">
+      Create the record
+    </div>
+
+
+    <!---------------------
+    Update Existing Record
+    ---------------------->
+    <div class="spf-tool_pane spf-tool_pane--modify">
+      Modify
+    </div>
+
+
+    <!---------------------
+    Already set up
+    ---------------------->
+    <div class="spf-tool_pane spf-tool_pane--existing">
+      Existing record
+    </div>
+    
+
+  </div>
+
+  <!----------------------------------------------
   Guide navigation
   ---------------------------------------------->
   <div class="u-container">

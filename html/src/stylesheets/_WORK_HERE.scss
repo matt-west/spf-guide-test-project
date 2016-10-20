@@ -1,1 +1,63 @@
 /* ----------------- Write your code here ---------------- */
+
+$g-border-radius: 3px;
+
+.spf-tool {
+  box-sizing: border-box;
+
+  max-width: 630px;
+  margin: 0 auto 70px;
+  padding: 30px;
+
+  background: $c-yellow;
+  border-radius: $g-border-radius;
+
+  &_pane {
+    display: none;
+
+    &--visible {
+      display: block;
+    }
+  }
+
+  &_title {
+    font-family: $f-rockwell;
+    font-size: $f-scale-big;
+    font-weight: normal;
+    line-height: 1.2;
+
+    margin: 0 0 .75em;
+  }
+
+  &_form {}
+
+  &_label {
+    display: block;
+    margin-bottom: 1em;
+  }
+
+  &_input {
+    box-sizing: border-box;
+
+    font-family: $f-sansserif;
+    font-size: $f-scale-big;
+
+    display: block;
+    width: 100%;
+    padding: 7px 15px;
+    margin-bottom: 1em;
+
+    border-radius: $g-border-radius;
+    border: 3px solid $c-dark;
+    outline: none;
+
+    &:focus {
+      border-color: $c-blue-dark;
+    }
+  }
+
+  &_submit {
+    color: #FFF;
+    text-shadow: 0 1px 1px $c-blue-darkest;
+  }
+}
