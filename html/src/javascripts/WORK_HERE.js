@@ -66,6 +66,7 @@ var SpfTool = {
     event.preventDefault();
 
     document.querySelector('.spf-tool_submit').setAttribute('disabled', 'disabled');
+    document.querySelector('.spf-tool_input').setAttribute('disabled', 'disabled');
 
     // Remove any errors.
     if (document.querySelector('.spf-tool_errors')) {
@@ -87,8 +88,6 @@ var SpfTool = {
       domain: domain,
       service_spf: SERVICE_SPF
     }));
-
-    document.querySelector('.spf-tool_input').value = '';
   },
 
   /**
@@ -98,6 +97,8 @@ var SpfTool = {
    */
   handleApiSuccess: function() {
     document.querySelector('.spf-tool_submit').removeAttribute('disabled');
+    document.querySelector('.spf-tool_input').removeAttribute('disabled');
+    document.querySelector('.spf-tool_input').value = '';
 
     var result = JSON.parse(this.responseText);
 
@@ -116,6 +117,7 @@ var SpfTool = {
    */
   handleApiError: function() {
     document.querySelector('.spf-tool_submit').removeAttribute('disabled');
+    document.querySelector('.spf-tool_input').removeAttribute('disabled');
 
     var result = JSON.parse(this.responseText);
     SpfTool.showErrors(result.errors);
