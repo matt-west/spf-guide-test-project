@@ -3696,13 +3696,18 @@ pre[class*='language-'] {
 /* ----------------- Write your code here ---------------- */
 .spf-tool {
   box-sizing: border-box;
-  max-width: 630px;
   margin: 0 auto 70px; }
+  @media only screen and (min-width: 750px) {
+    .spf-tool {
+      padding: 0 35px; } }
+  @media only screen and (min-width: 1020px) {
+    .spf-tool {
+      max-width: 630px;
+      padding: 0; } }
   .spf-tool_pane {
     display: none;
     background: #FFDE00;
-    border-radius: 3px;
-    padding: 2em; }
+    padding: 1.5em; }
     .spf-tool_pane--visible {
       display: block; }
     .spf-tool_pane--existing {
@@ -3718,15 +3723,20 @@ pre[class*='language-'] {
         .spf-tool_pane--existing a:visited:hover,
         .spf-tool_pane--existing a:visited:focus {
           color: #226b4a; }
+    @media only screen and (min-width: 750px) {
+      .spf-tool_pane {
+        padding: 2em;
+        border-radius: 3px; } }
   .spf-tool_title {
     font-family: "Rockwell W01", "Helvetica Neue", Arial, Helvetica, sans-serif;
     font-size: 1.35em;
     font-weight: normal;
     line-height: 1.2;
     margin: 0 0 .75em; }
-  .spf-tool_form {
-    display: flex;
-    flex-wrap: wrap; }
+  @media only screen and (min-width: 480px) {
+    .spf-tool_form {
+      display: flex;
+      flex-wrap: wrap; } }
   .spf-tool_errors {
     width: 100%;
     margin: 0 0 1em 0;
@@ -3744,19 +3754,27 @@ pre[class*='language-'] {
     font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
     font-size: 1.125em;
     display: block;
-    flex-grow: 4;
+    width: 100%;
     padding: .45em .9em;
+    margin-bottom: 1em;
     border-radius: 3px;
     border: 1px solid #E5C700;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06) inset;
     outline: none; }
     .spf-tool_input:focus {
       border-color: #760; }
+    @media only screen and (min-width: 480px) {
+      .spf-tool_input {
+        width: auto;
+        flex-grow: 4;
+        margin-bottom: 0; } }
   .spf-tool_submit {
-    flex-grow: 1;
     color: #FFF;
-    text-shadow: 0 1px 1px #004775;
-    margin-left: 1em; }
+    text-shadow: 0 1px 1px #004775; }
+    @media only screen and (min-width: 480px) {
+      .spf-tool_submit {
+        flex-grow: 1;
+        margin-left: 1em; } }
   .spf-tool_instruction {
     font-weight: 500;
     background-color: #22252B;
@@ -3775,8 +3793,8 @@ pre[class*='language-'] {
     padding: 1em;
     margin-bottom: 1em; }
   .spf-tool_restart {
-    float: right;
-    margin-top: .45em;
+    display: block;
+    margin-top: 1em;
     color: #22252B; }
     .spf-tool_restart:link, .spf-tool_restart:visited {
       color: #22252B; }
@@ -3786,3 +3804,8 @@ pre[class*='language-'] {
       float: none; }
       .spf-tool_pane--existing .spf-tool_restart:link, .spf-tool_pane--existing .spf-tool_restart:visited {
         color: #FFF; }
+    @media only screen and (min-width: 480px) {
+      .spf-tool_restart {
+        float: right;
+        display: inline-block;
+        margin-top: .45em; } }

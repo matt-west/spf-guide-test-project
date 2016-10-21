@@ -7,14 +7,21 @@ $g-border-radius: 3px;
 #{$namespace} {
   box-sizing: border-box;
 
-  max-width: 630px;
   margin: 0 auto 70px;
+
+  @include medium {
+    padding: 0 35px;
+  }
+
+  @include large {
+    max-width: 630px;
+    padding: 0;
+  }
 
   &_pane {
     display: none;
     background: $c-yellow;
-    border-radius: $g-border-radius;
-    padding: 2em;
+    padding: 1.5em;
 
     &--visible {
       display: block;
@@ -35,6 +42,11 @@ $g-border-radius: 3px;
         }
       }
     }
+
+    @include medium {
+      padding: 2em;
+      border-radius: $g-border-radius;
+    }
   }
 
   &_title {
@@ -47,8 +59,11 @@ $g-border-radius: 3px;
   }
 
   &_form {
-    display: flex;
-    flex-wrap: wrap;
+
+    @include small {
+      display: flex;
+      flex-wrap: wrap;
+    }
   }
 
   &_errors {
@@ -74,8 +89,9 @@ $g-border-radius: 3px;
     font-size: $f-scale-bigger;
 
     display: block;
-    flex-grow: 4;
+    width: 100%;
     padding: .45em .9em;
+    margin-bottom: 1em;
 
     border-radius: $g-border-radius;
     border: 1px solid $c-yellow-medium;
@@ -85,13 +101,22 @@ $g-border-radius: 3px;
     &:focus {
       border-color: $c-yellow-dark;
     }
+
+    @include small {
+      width: auto;
+      flex-grow: 4;
+      margin-bottom: 0;
+    }
   }
 
   &_submit {
-    flex-grow: 1;
     color: #FFF;
     text-shadow: 0 1px 1px $c-blue-darkest;
-    margin-left: 1em;
+
+    @include small {
+      flex-grow: 1;
+      margin-left: 1em;
+    }
   }
 
   &_instruction {
@@ -117,8 +142,8 @@ $g-border-radius: 3px;
   }
 
   &_restart {
-    float: right;
-    margin-top: .45em;
+    display: block;
+    margin-top: 1em;
     color: $c-page-tc;
 
     &:link,
@@ -138,6 +163,12 @@ $g-border-radius: 3px;
       &:visited {
         color: #FFF;
       }
+    }
+
+    @include small {
+      float: right;
+      display: inline-block;
+      margin-top: .45em;
     }
   }
 }
