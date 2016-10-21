@@ -211,9 +211,11 @@ var SpfTool = {
   showPane: function(pane) {
     Array.prototype.forEach.call(this.panes, function(ele) {
       if (ele.classList.contains('spf-tool_pane--' + pane)) {
+        ele.removeAttribute('aria-hidden');
         return ele.classList.add('spf-tool_pane--visible');
       }
 
+      ele.setAttribute('aria-hidden', 'true');
       return ele.classList.remove('spf-tool_pane--visible');
     });
   },

@@ -133,7 +133,7 @@
   <!----------------------------------------------
   SPF Tool
   ---------------------------------------------->
-  <div class="spf-tool">
+  <div class="spf-tool" aria-role="widget">
 
     <!---------------------
     Start
@@ -141,7 +141,7 @@
     <div class="spf-tool_pane spf-tool_pane--start spf-tool_pane--visible">
       <h2 class="spf-tool_title">Ready to get started?</h2>
       <form action="#" method="post" class="spf-tool_form">
-        <label for="spf_domain" class="spf-tool_label">Enter your domain name and we’ll check your DNS records to see if you need to set up SPF.</label>
+        <label for="spf_domain" class="spf-tool_label">Enter your domain name and we’ll check your DNS records to see if you need to set up an SPF policy.</label>
         <input type="text" id="spf_domain" class="spf-tool_input" placeholder="your-awesome-domain.com" />
         <button type="submit" class="cta-btn cta-btn--default spf-tool_submit">Check DNS</button>
       </form>
@@ -151,7 +151,7 @@
     <!---------------------
     Add New Record
     ---------------------->
-    <div class="spf-tool_pane spf-tool_pane--create">
+    <div class="spf-tool_pane spf-tool_pane--create" aria-hidden="true">
       <h2 class="spf-tool_title">Add an SPF Policy</h2>
       <p>Looks like you don’t have an SPF TXT record set up on your domain yet.</p>
       <p class="spf-tool_instruction">Create a new TXT record with the following value:</p>
@@ -164,7 +164,7 @@
     <!---------------------
     Update Existing Record
     ---------------------->
-    <div class="spf-tool_pane spf-tool_pane--modify">
+    <div class="spf-tool_pane spf-tool_pane--modify" aria-hidden="true">
       <h2 class="spf-tool_title">Update Your SPF Policy</h2>
       <p>Good news! You already have an SPF TXT record set up so you’ll just need to make a few changes.</p>
       <p class="spf-tool_instruction">Update your existing SPF TXT record with the following:</p>
@@ -177,7 +177,7 @@
     <!---------------------
     Already set up
     ---------------------->
-    <div class="spf-tool_pane spf-tool_pane--existing">
+    <div class="spf-tool_pane spf-tool_pane--existing" aria-hidden="true">
       <h2 class="spf-tool_title">You’re all set!</h2>
       <p>Postmark is already specified in your SPF policy so you don’t need to make any changes. How about checking out some of our <a href="https://postmarkapp.com/guides">other guides</a>.</p>
 
