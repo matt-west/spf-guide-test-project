@@ -6,6 +6,9 @@ const SERVICE_SPF = 'spf.mtasv.net';
 var SpfTool = {
 
   panes: null,
+  form: null,
+  submitBtn: null,
+  input: null,
 
   /**
    * Initialise the SPF tool.
@@ -13,11 +16,14 @@ var SpfTool = {
    * @return {undefined}
    */
   init: function() {
-    // Find the panes.
+    // Find the key elements.
     this.panes = document.querySelectorAll('.spf-tool_pane');
+    this.form = document.querySelector('.spf-tool_form');
+    this.submitBtn = document.querySelector('.spf-tool_submit');
+    this.domainInput = document.querySelector('.spf-tool_input');
 
     // Setup Event Listeners
-    document.querySelector('.spf-tool_form').addEventListener('submit', this.checkSpfRecord);
+    this.form.addEventListener('submit', this.checkSpfRecord);
 
     Array.prototype.forEach.call(document.querySelectorAll('.spf-tool_restart'), function(link) {
       link.addEventListener('click', SpfTool.resetTool);
@@ -65,15 +71,16 @@ var SpfTool = {
   checkSpfRecord: function(event) {
     event.preventDefault();
 
-    document.querySelector('.spf-tool_submit').setAttribute('disabled', 'disabled');
-    document.querySelector('.spf-tool_input').setAttribute('disabled', 'disabled');
+    SpfTool.submitBtn.setAttribute('disabled', 'disabled');
+    SpfTool.domainInput.setAttribute('disabled', 'disabled');
 
     // Remove any errors.
-    if (document.querySelector('.spf-tool_errors')) {
-      document.querySelector('.spf-tool_errors').remove();
+    var errorsContainer = document.querySelector('.spf-tool_errors');
+    if (errorsContainer) {
+      errorsContainer.remove();
     }
 
-    var domain = document.querySelector('.spf-tool_input').value;
+    var domain = SpfTool.domainInput.value;
 
     // Make a request to check the DNS.
     var request = new XMLHttpRequest();
@@ -96,9 +103,9 @@ var SpfTool = {
    * @return {undefined}
    */
   handleApiSuccess: function() {
-    document.querySelector('.spf-tool_submit').removeAttribute('disabled');
-    document.querySelector('.spf-tool_input').removeAttribute('disabled');
-    document.querySelector('.spf-tool_input').value = '';
+    SpfTool.submitBtn.removeAttribute('disabled');
+    SpfTool.domainInput.removeAttribute('disabled');
+    SpfTool.domainInput.value = '';
 
     var result = JSON.parse(this.responseText);
 
@@ -116,8 +123,8 @@ var SpfTool = {
    * @return {undefined}
    */
   handleApiError: function() {
-    document.querySelector('.spf-tool_submit').removeAttribute('disabled');
-    document.querySelector('.spf-tool_input').removeAttribute('disabled');
+    SpfTool.submitBtn.removeAttribute('disabled');
+    SpfTool.domainInput.removeAttribute('disabled');
 
     var result = JSON.parse(this.responseText);
     SpfTool.showErrors(result.errors);
@@ -130,9 +137,7 @@ var SpfTool = {
    * @return {undefined}
    */
   showErrors: function(errors) {
-    var errorsContainer = document.querySelector('.spf-tool_errors'),
-        form = document.querySelector('.spf-tool_form'),
-        input = document.querySelector('.spf-tool_input');
+    var errorsContainer = document.querySelector('.spf-tool_errors');
 
     if (errorsContainer) {
       errorsContainer.remove();
@@ -147,7 +152,7 @@ var SpfTool = {
       errorList.appendChild(item);
     });
 
-    form.insertBefore(errorList, input);
+    SpfTool.form.insertBefore(errorList, SpfTool.domainInput);
 
     SpfTool.showPane('start');
   },
