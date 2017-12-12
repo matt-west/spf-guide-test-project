@@ -1,1 +1,174 @@
 /* ----------------- Write your code here ---------------- */
+
+$namespace: '.spf-tool';
+
+$g-border-radius: 3px;
+
+#{$namespace} {
+  box-sizing: border-box;
+
+  margin: 0 auto 70px;
+
+  @include medium {
+    padding: 0 35px;
+  }
+
+  @include large {
+    max-width: 630px;
+    padding: 0;
+  }
+
+  &_pane {
+    display: none;
+    background: $c-yellow;
+    padding: 1.5em;
+
+    &--visible {
+      display: block;
+    }
+
+    &--existing {
+      background: $c-mint-dark;
+      color: #FFF;
+
+      a,
+      a:link,
+      a:visited {
+        color: #FFF;
+
+        &:hover,
+        &:focus {
+          color: darken($c-mint-dark, 15%);
+        }
+      }
+    }
+
+    @include medium {
+      padding: 2em;
+      border-radius: $g-border-radius;
+    }
+  }
+
+  &_title {
+    font-family: $f-rockwell;
+    font-size: $f-scale-big;
+    font-weight: normal;
+    line-height: 1.2;
+
+    margin: 0 0 .75em;
+  }
+
+  &_form {
+
+    @include small {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+  &_errors {
+    width: 100%;
+    margin: 0 0 1em 0;
+    border-radius: $g-border-radius;
+    background-color: $c-red;
+    color: #FFF;
+    padding: .7em 1em;
+    list-style: none;
+  }
+
+  &_label {
+    display: block;
+    width: 100%;
+    margin-bottom: 1em;
+  }
+
+  &_input {
+    box-sizing: border-box;
+
+    font-family: $f-sansserif;
+    font-size: $f-scale-bigger;
+
+    display: block;
+    width: 100%;
+    padding: .45em .9em;
+    margin-bottom: 1em;
+
+    border-radius: $g-border-radius;
+    border: 1px solid $c-yellow-medium;
+    box-shadow: 0 1px 2px rgba(#000, .06) inset;
+    outline: none;
+
+    &:focus {
+      border-color: $c-yellow-dark;
+    }
+
+    @include small {
+      width: auto;
+      flex-grow: 4;
+      margin-bottom: 0;
+    }
+  }
+
+  &_submit {
+    color: #FFF;
+    text-shadow: 0 1px 1px $c-blue-darkest;
+
+    @include small {
+      flex-grow: 1;
+      margin-left: 1em;
+    }
+  }
+
+  &_instruction {
+    font-weight: 500;
+    background-color: $c-slate-darkest;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUiIGhlaWdodD0iMTUiIHZpZXdCb3g9IjAgMCAxNSAxNSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+YXJyb3ctc21hbGw8L3RpdGxlPjxwYXRoIGQ9Ik0xLjEzMyA3LjI2OGgxMi4yOG0uMzU1IDBMNy45NiAxMy4wNzZtNS44MDgtNS44MDhMNy45NiAxLjQ2IiBzdHJva2U9IiNGRkUwMDAiIHN0cm9rZS13aWR0aD0iMyIgZmlsbD0ibm9uZSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9zdmc+);
+    background-repeat: no-repeat;
+    background-position: 1em 52%;
+    background-size: .8em .8em;
+
+    border-radius: $g-border-radius $g-border-radius 0 0;
+    margin: 0;
+    padding: .6em 1em .6em 2.5em;
+    color: #FFF;
+  }
+
+  &_code {
+    border-radius: 0 0 $g-border-radius $g-border-radius;
+    background-color: $c-slate;
+    color: #FFF;
+    padding: 1em;
+    margin-bottom: 1em;
+  }
+
+  &_restart {
+    display: block;
+    margin-top: 1em;
+    color: $c-page-tc;
+
+    &:link,
+    &:visited {
+      color: $c-page-tc;
+    }
+
+    &:hover,
+    &:focus {
+      color: $c-blue;
+    }
+
+    #{$namespace}_pane--existing & {
+      float: none;
+
+      &:link,
+      &:visited {
+        color: #FFF;
+      }
+    }
+
+    @include small {
+      float: right;
+      display: inline-block;
+      margin-top: .45em;
+    }
+  }
+}
